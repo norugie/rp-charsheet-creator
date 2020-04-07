@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@showIndexInfo');
 
-Route::get('/characters/{id}', 'CharacterController@showCharacterInfo');
+// Character Routes
+Route::get('/character/{id}', 'CharacterController@showCharacterInfo');
+Route::get('/create', 'CharacterController@createCharacter');
+
+// User Routes
+Route::get('/login', 'IndexController@login');
