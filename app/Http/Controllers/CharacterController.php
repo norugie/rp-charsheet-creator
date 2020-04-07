@@ -16,4 +16,8 @@ class CharacterController extends Controller
             'character' => $charInfo
         ]);
     }
+
+    public function createCharacter () {
+        return view('create');
+    }
 }
