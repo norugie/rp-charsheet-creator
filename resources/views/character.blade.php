@@ -1,0 +1,1 @@
+<h3>{{ $character->info }}</h3>
