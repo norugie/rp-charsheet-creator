@@ -18,12 +18,20 @@ class CreateCharactersTable extends Migration
             $table->string('slug')->unique();
             $table->string('name');
             $table->integer('age')->unsigned();
+            $table->integer('apparent_age')->unsigned();
             $table->string('gender');
             $table->string('sexuality');
             $table->text('info');
+            $table->biginteger('author_id')->unsigned()->index();
             $table->timestamp('published_at')->useCurrent();
             $table->timestamps();
         });
+
+        // Foreign Key
+        Schema::table('characters', function (Blueprint $table) {
+            $table->foreign('author_id')->references('id')->on('users');
+        });
+
     }
 
     /**
