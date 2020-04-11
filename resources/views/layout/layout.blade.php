@@ -30,7 +30,7 @@
 
             {{-- Navigation --}}
             <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                <a class="navbar-brand" href="#">RP Character Sheet Creator</a>
+                <a class="navbar-brand" href="/">RP Character Sheet Creator</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-rpchcr" aria-controls="navbar-rpchcr" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span>
                 </button>

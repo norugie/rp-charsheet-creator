@@ -7,13 +7,20 @@ use App\Character;
 
 class CharacterController extends Controller
 {
+
+    public function showCharacterList ()
+    {
+        return view('index',
+        [
+            'characters' => Character::latest()->get()
+        ]);
+    }
+
     public function showCharacterInfo ($slug)
     {
-        $charInfo = Character::where('slug', $slug)->firstOrFail();
-
         return view('character',
         [
-            'character' => $charInfo
+            'character' => Character::where('slug', $slug)->firstOrFail()
         ]);
     }
 

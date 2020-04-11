@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use App\Character;
 
 class IndexController extends Controller
 {
-    public function showIndexInfo ()
-    {
-        return view('index');
-    }
-
     public function login ()
     {
         return view('login');

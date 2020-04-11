@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCharImagesTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCharImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('char_images', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('char_name');
             $table->biginteger('char_id')->unsigned()->index();
@@ -21,7 +21,7 @@ class CreateCharImagesTable extends Migration
         });
 
         // Foreign Key
-        Schema::table('char_images', function (Blueprint $table) {
+        Schema::table('images', function (Blueprint $table) {
             $table->foreign('char_id')->references('id')->on('characters');
         });
     }
@@ -33,6 +33,6 @@ class CreateCharImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('char_images');
+        Schema::dropIfExists('images');
     }
 }
