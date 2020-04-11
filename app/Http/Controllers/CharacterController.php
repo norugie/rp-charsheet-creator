@@ -10,9 +10,11 @@ class CharacterController extends Controller
 
     public function showCharacterList ()
     {
+        $characters = Character::join('images', 'images.char_id', '=', 'characters.id')->groupBy('characters.id')->get();
+
         return view('index',
         [
-            'characters' => Character::latest()->get()
+            'characters' => $characters
         ]);
     }
 

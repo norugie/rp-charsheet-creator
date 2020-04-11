@@ -57,7 +57,9 @@
             {{-- Content --}}
             <div class="ftco-section">
                 <div class="container">
-                    @yield ('content')
+                    <div class="row">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
 

@@ -5209,7 +5209,9 @@ input[type="button"].btn-block {
 }
 
 .card-img-top {
-    width: 100%;
+    object-fit: cover;
+    object-position: 0 20%;
+    max-height: 250px;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
 }
