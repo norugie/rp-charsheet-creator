@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@showIndexInfo');
-
 // Character Routes
+Route::get('/', 'CharacterController@showCharacterList');
 Route::get('/character/{id}', 'CharacterController@showCharacterInfo');
 Route::get('/create', 'CharacterController@createCharacter');
 
