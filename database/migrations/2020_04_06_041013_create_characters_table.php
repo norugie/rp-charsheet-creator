@@ -21,7 +21,8 @@ class CreateCharactersTable extends Migration
             $table->integer('apparent_age')->unsigned();
             $table->string('gender');
             $table->string('sexuality');
-            $table->text('info');
+            $table->string('chardesc');
+            $table->text('info')->nullable();
             $table->biginteger('author_id')->unsigned()->index();
             $table->timestamp('published_at')->useCurrent();
             $table->timestamps();
