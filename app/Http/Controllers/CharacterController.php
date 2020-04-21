@@ -10,7 +10,11 @@ class CharacterController extends Controller
 
     public function showCharacterList ()
     {
-        $characters = Character::join('images', 'images.char_id', '=', 'characters.id')->groupBy('characters.id')->get();
+        $characters = Character::join('images', 'images.char_id', '=', 'characters.id')->join('users', 'characters.author_id', '=', 'users.id')->groupBy('characters.id')->get();
+
+        if(! $characters->count()) {
+            abort(404);
+        }
 
         return view('index',
         [

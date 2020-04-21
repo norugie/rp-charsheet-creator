@@ -3,7 +3,7 @@
 @section ('content')
 
     {{-- Login - User Login --}}
-<div class="row">
+
     <div class="col-lg-4 col-md-6 ml-auto mr-auto">
         <div class="card card-login py-4">
             <form class="form-login" method="" action="">
@@ -35,6 +35,5 @@
             </form>
         </div>
     </div>
-</div>
 
 @endsection
