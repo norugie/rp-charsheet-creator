@@ -35,6 +35,10 @@ class CharacterController extends Controller
         $query = request( 'search' );
         $characters = Character::join( 'images', 'images.char_id', '=', 'characters.id' )->join( 'users', 'characters.author_id', '=', 'users.id' )->groupBy( 'characters.id' )->where( 'characters.char_name', 'LIKE', '%'.$query.'%' )->orWhere( 'users.name', 'LIKE', '%'.$query.'%' )->get();
 
+        if(! $characters->count() ) {
+            return view( 'empty' );
+        }
+
         return view( 'index',
         [
             'characters' => $characters
