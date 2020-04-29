@@ -47,8 +47,9 @@
                             <a class="nav-link d-flex align-items-center" href="/login">Login</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <form action="/search" method="POST" class="form-inline my-2 my-lg-0">
+                        {{ csrf_field() }}
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
                         <button class="btn btn-outline-light my-2 my-sm-0 btn-fab" type="submit"><i class="ion-ios-search"></i></button>
                     </form>
                 </div>

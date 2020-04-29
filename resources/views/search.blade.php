@@ -2,7 +2,7 @@
 
 @section ('content')
 
-    {{-- Index - Character Sheet List --}}
+    {{-- Search Result - Character Sheet List --}}
     @foreach ($characters as $character)
         <div class="col-md-3">
             <div class="card">

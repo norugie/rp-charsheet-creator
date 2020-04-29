@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Character Routes
-Route::get('/', 'CharacterController@showCharacterList');
-Route::get('/character/{id}', 'CharacterController@showCharacterInfo');
-Route::get('/create', 'CharacterController@createCharacter');
+Route::get( '/', 'CharacterController@showCharacterList' );
+Route::get( '/character/{id}', 'CharacterController@showCharacterInfo' );
+Route::get( '/create', 'CharacterController@createCharacter' );
+Route::post( '/search', 'CharacterController@searchCharacter' );
 
 // User Routes
-Route::get('/login', 'IndexController@login');
+Route::get( '/login', 'IndexController@login' );
