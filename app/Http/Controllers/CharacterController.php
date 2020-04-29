@@ -22,6 +22,20 @@ class CharacterController extends Controller
         ]);
     }
 
+    public function showCharacterListPerUser ( $username )
+    {
+        $characters = Character::join( 'images', 'images.char_id', '=', 'characters.id' )->join( 'users', 'characters.author_id', '=', 'users.id' )->groupBy( 'characters.id' )->where( 'users.username', $username )->get();
+
+        if(! $characters->count() ) {
+            return view( 'empty' );
+        }
+
+        return view( 'index',
+        [
+            'characters' => $characters
+        ]);
+    }
+
     public function showCharacterInfo ( $slug )
     {
         return view('character',
