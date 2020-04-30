@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Character;
+use App\Images;
 
 class CharacterController extends Controller
 {
@@ -38,9 +39,11 @@ class CharacterController extends Controller
 
     public function showCharacterInfo ( $slug )
     {
-        return view('character',
+        $character = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'characters.slug', $slug )->first();
+
+        return view( 'character',
         [
-            'character' => Character::where( 'slug', $slug )->firstOrFail()
+            'character' => $character
         ]);
     }
 
@@ -61,6 +64,6 @@ class CharacterController extends Controller
     }
 
     public function createCharacter () {
-        return view('create');
+        return view( 'create' );
     }
 }
