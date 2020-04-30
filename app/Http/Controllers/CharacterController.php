@@ -39,11 +39,15 @@ class CharacterController extends Controller
 
     public function showCharacterInfo ( $slug )
     {
-        $character = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'characters.slug', $slug )->first();
+        $character = Character::where( 'slug', $slug )->first();
+        $author = Character::find($character->id)->author;
+        $images = Character::find($character->id)->images;
 
         return view( 'character',
         [
-            'character' => $character
+            'character' => $character,
+            'author' => $author,
+            'images' => $images
         ]);
     }
 
