@@ -11,7 +11,7 @@ class CharacterController extends Controller
 
     public function showCharacterList ()
     {
-        $characters = Character::join( 'images', 'images.char_id', '=', 'characters.id' )->join( 'users', 'characters.author_id', '=', 'users.id' )->groupBy( 'characters.id' )->get();
+        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->get();
 
         if(! $characters->count() ) {
             abort(404);
@@ -25,7 +25,7 @@ class CharacterController extends Controller
 
     public function showCharacterListPerUser ( $username )
     {
-        $characters = Character::join( 'images', 'images.char_id', '=', 'characters.id' )->join( 'users', 'characters.author_id', '=', 'users.id' )->groupBy( 'characters.id' )->where( 'users.username', $username )->get();
+        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'users.username', $username )->get();
 
         if(! $characters->count() ) {
             return view( 'empty' );
@@ -54,7 +54,7 @@ class CharacterController extends Controller
     public function searchCharacter ()
     {
         $query = request( 'search' );
-        $characters = Character::join( 'images', 'images.char_id', '=', 'characters.id' )->join( 'users', 'characters.author_id', '=', 'users.id' )->groupBy( 'characters.id' )->where( 'characters.char_name', 'LIKE', '%'.$query.'%' )->orWhere( 'users.name', 'LIKE', '%'.$query.'%' )->get();
+        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'characters.char_name', 'LIKE', '%'.$query.'%' )->orWhere( 'users.name', 'LIKE', '%'.$query.'%' )->get();
 
         if(! $characters->count() ) {
             return view( 'empty' );

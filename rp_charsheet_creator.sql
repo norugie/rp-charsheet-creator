@@ -47,11 +47,11 @@ CREATE TABLE `characters` (
 -- Dumping data for table `characters`
 --
 
-INSERT INTO `characters` (`id`, `slug`, `char_name`, `age`, `apparent_age`, `gender`, `sexuality`, `chardesc`, `info`, `author_id`, `published_at`, `created_at`, `updated_at`) VALUES
-(4, '1308-isolde-wolfe', 'Isolde Wolfe', 28, 28, 'Female', 'Bisexual', 'Ordinary swordswoman with a holy sword!', 'Ordinary swordswoman with a holy sword!', 2, '2020-04-10 20:50:40', '2020-04-10 20:50:40', NULL),
-(5, '2528-aranea-brightnet', 'Aranea Brightnet', 255, 26, 'Female', 'Aromantic Lesbian', 'Owner of the The Brightnet Co., a huge textile company that specializes in the production of military-grade material.', 'Owner of the The Brightnet Co., a huge textile company that specializes in the production of military-grade material.', 1, '2020-04-10 20:50:40', '2020-04-10 20:50:40', NULL),
-(6, '0926-alex-lau', 'Alexandria Lau', 30, 30, 'Female', 'Aromantic Bisexual', 'Former mercenary and the current head of security for the Brightner Manor.', 'Former mercenary and the current head of security for the Brightner Manor.', 1, '2020-04-10 23:28:56', '2020-04-10 23:28:56', NULL),
-(7, '4357-erhaes-venn', 'Er\'haes Venn', 24, 24, 'Female', 'Pansexual', 'Whimsical potion merchant who travels around in search of new knowledge while in pursuit of pleasure.', 'Whimsical potion merchant who travels around in search of new knowledge while in pursuit of pleasure.', 2, '2020-04-11 08:28:23', '2020-04-11 08:28:23', NULL);
+INSERT INTO `characters` (`id`, `slug`, `char_name`, `age`, `apparent_age`, `gender`, `sexuality`, `chardesc`, `info`, `cover_img`, `author_id`, `published_at`, `created_at`, `updated_at`) VALUES
+(4, '1308-isolde-wolfe', 'Isolde Wolfe', 28, 28, 'Female', 'Bisexual', 'Ordinary swordswoman with a holy sword!', 'Ordinary swordswoman with a holy sword!', 'isolde-wolfe-1.png', 2, '2020-04-10 20:50:40', '2020-04-10 20:50:40', NULL),
+(5, '2528-aranea-brightnet', 'Aranea Brightnet', 255, 26, 'Female', 'Aromantic Lesbian', 'Owner of the The Brightnet Co., a huge textile company that specializes in the production of military-grade material.', 'Owner of the The Brightnet Co., a huge textile company that specializes in the production of military-grade material.', 'aranea-brightnet-1.jpg', 1, '2020-04-10 20:50:40', '2020-04-10 20:50:40', NULL),
+(6, '0926-alex-lau', 'Alexandria Lau', 30, 30, 'Female', 'Aromantic Bisexual', 'Former mercenary and the current head of security for the Brightner Manor.', 'Former mercenary and the current head of security for the Brightner Manor.', 'alex-lau-1.jpg', 1, '2020-04-10 23:28:56', '2020-04-10 23:28:56', NULL),
+(7, '4357-erhaes-venn', 'Er\'haes Venn', 24, 24, 'Female', 'Pansexual', 'Whimsical potion merchant who travels around in search of new knowledge while in pursuit of pleasure.', 'Whimsical potion merchant who travels around in search of new knowledge while in pursuit of pleasure.', 'venn-1.jpg', 2, '2020-04-11 08:28:23', '2020-04-11 08:28:23', NULL);
 
 -- --------------------------------------------------------
 
