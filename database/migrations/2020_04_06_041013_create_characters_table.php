@@ -23,6 +23,7 @@ class CreateCharactersTable extends Migration
             $table->string('sexuality');
             $table->string('chardesc');
             $table->text('info')->nullable();
+            $table->string('cover_img');
             $table->biginteger('author_id')->unsigned()->index();
             $table->timestamp('published_at')->useCurrent();
             $table->timestamps();

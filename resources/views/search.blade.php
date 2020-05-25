@@ -6,7 +6,7 @@
     @foreach ($characters as $character)
         <div class="col-md-3">
             <div class="card">
-                <img src="/images/char_images/{{ $character->char_filename }}" class="card-img-top" alt="...">
+                <img src="/images/char_images/{{ $character->cover_img }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title text-center mb-0">{{ $character->char_name }}</h5>
                     <p class="card-text mt-0 text-center">
