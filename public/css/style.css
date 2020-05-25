@@ -13049,3 +13049,7 @@ h5,
     font-weight: 700;
     font-size: 22px;
 }
+
+.navbar-brand img {
+    height: 50px;
+}

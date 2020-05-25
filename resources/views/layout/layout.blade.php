@@ -24,6 +24,8 @@
         <link rel="stylesheet" href="/css/icomoon.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/custom.css">
+
+        <link rel="icon" href="/images/icons/rpcsc.png">
     </head>
     <body> 
         {{-- Site Content --}}
@@ -31,7 +33,7 @@
 
             {{-- Navigation --}}
             <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                <a class="navbar-brand" href="/">RP Character Sheet Creator</a>
+                <a class="navbar-brand" href="/"><img src="/images/icons/rpcsc.png" class="img-fluid" alt="RPCSC Icon"> RPCSC</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-rpchcr" aria-controls="navbar-rpchcr" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span>
                 </button>
@@ -50,7 +52,7 @@
                     </ul>
                     <form action="/search" method="POST" class="form-inline my-2 my-lg-0">
                         {{ csrf_field() }}
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                        <input class="form-control mr-sm-2 mr-xs-2" type="search" placeholder="Search" name="search" aria-label="Search">
                         <button class="btn btn-outline-light my-2 my-sm-0 btn-fab" type="submit"><i class="ion-ios-search"></i></button>
                     </form>
                 </div>
@@ -69,9 +71,9 @@
             <footer class="ftco-section ftco-section-2">
                 <div class="col-md-12 text-center">
                     <p class="mb-0">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        &copy; <script>document.write(new Date().getFullYear());</script>. RPSCS | Template by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <!-- Link back to Colorlib and Smashicons can't be removed. -->
+                        &copy; <script>document.write(new Date().getFullYear());</script>. RPCSC | Template by <a href="https://colorlib.com" target="_blank">Colorlib</a> | Logo by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>
+                        <!-- Link back to Colorlib and Smashicons can't be removed. -->
                     </p>
                 </div>
             </footer>
