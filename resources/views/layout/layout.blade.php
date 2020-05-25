@@ -38,13 +38,13 @@
 
                 <div class="collapse navbar-collapse" id="navbar-rpchcr">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item df-elx {{ Request::is( '/' ) ? 'active' : ''}}">
+                        <li class="nav-item df-elx {{ Request::is( '/' ) ? 'active' : '' }}">
                             <a class="nav-link d-flex align-items-center" href="/">Home</a>
                         </li>
-                        <li class="nav-item df-elx {{ Request::is( 'create' ) ? 'active' : ''}}">
+                        <li class="nav-item df-elx {{ Request::is( 'create' ) ? 'active' : '' }}">
                             <a class="nav-link d-flex align-items-center" href="/create">Create</a>
                         </li>
-                        <li class="nav-item df-elx {{ Request::is( 'login' ) ? 'active' : ''}}">
+                        <li class="nav-item df-elx {{ Request::is( 'login' ) ? 'active' : '' }}">
                             <a class="nav-link d-flex align-items-center" href="/login">Login</a>
                         </li>
                     </ul>
