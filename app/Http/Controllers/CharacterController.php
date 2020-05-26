@@ -53,7 +53,7 @@ class CharacterController extends Controller
     public function searchCharacter ()
     {
         $query = request( 'search' );
-        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'characters.char_name', 'LIKE', '%'.$query.'%' )->orWhere( 'users.name', 'LIKE', '%'.$query.'%' )->get();
+        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'characters.char_name', 'ILIKE', '%'.$query.'%' )->orWhere( 'users.name', 'ILIKE', '%'.$query.'%' )->get();
 
         if(! $characters->count() ) return view( 'empty' );
 
