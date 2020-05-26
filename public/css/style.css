@@ -12324,8 +12324,8 @@ h5,
 }
 
 .navbar {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
 }
 
 .navbar .navbar-brand {
@@ -12659,7 +12659,6 @@ h5,
     height: 40px;
     position: relative;
     display: inline-block;
-    float: left;
     margin: 0 2px;
     border-radius: 50%;
     background: #3e64ff;
@@ -13051,5 +13050,5 @@ h5,
 }
 
 .navbar-brand img {
-    height: 50px;
+    height: 70px;
 }

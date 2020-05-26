@@ -22,3 +22,6 @@ Route::post( '/search', 'CharacterController@searchCharacter' );
 
 // User Routes
 Route::get( '/login', 'IndexController@login' );
+
+// Miscellaneous Routes
+Route::post( '/upload', 'IndexController@uploadImageTinyMCE' );
