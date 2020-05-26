@@ -13,7 +13,7 @@ class CharacterController extends Controller
     {
         $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->get();
 
-        if(! $characters->count() ) abort(404);
+        if(! $characters->count() ) return view( 'empty' );
 
         return view( 'index',
         [
