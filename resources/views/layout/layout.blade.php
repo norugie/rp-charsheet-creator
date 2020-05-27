@@ -33,28 +33,30 @@
 
             {{-- Navigation --}}
             <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                <a class="navbar-brand" href="/"><img src="/images/icons/rpcsc.png" class="img-fluid" alt="RPCSC Icon"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-rpchcr" aria-controls="navbar-rpchcr" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbar-rpchcr">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item d-flex {{ Request::is( '/' ) ? 'active' : '' }}">
-                            <a class="nav-link d-flex align-items-center" href="/"><i class="ion-ios-home mr-1"></i> Home</a>
-                        </li>
-                        <li class="nav-item d-flex {{ Request::is( 'create' ) ? 'active' : '' }}">
-                            <a class="nav-link d-flex align-items-center" href="/create"><i class="ion-ios-create mr-1"></i> Create</a>
-                        </li>
-                        <li class="nav-item d-flex {{ Request::is( 'login' ) ? 'active' : '' }}">
-                            <a class="nav-link d-flex align-items-center" href="/login"><i class="ion-ios-log-in mr-1"></i> Login</a>
-                        </li>
-                    </ul>
-                    <form action="/search" method="POST" class="form-inline my-2 my-lg-0">
-                        {{ csrf_field() }}
-                        <input class="form-control mr-sm-2 mr-xs-2" type="search" placeholder="Search" name="search" aria-label="Search">
-                        <button class="btn btn-outline-light my-2 my-sm-0 btn-fab" type="submit"><i class="ion-ios-search"></i></button>
-                    </form>
+                <div class="container">
+                    <a class="navbar-brand" href="/"><img src="/images/icons/rpcsc.png" class="img-fluid" alt="RPCSC Icon"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-rpchcr" aria-controls="navbar-rpchcr" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="oi oi-menu"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbar-rpchcr">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item d-flex {{ Request::is( '/' ) ? 'active' : '' }}">
+                                <a class="nav-link d-flex align-items-center" href="/"><i class="ion-ios-home mr-1"></i> Home</a>
+                            </li>
+                            <li class="nav-item d-flex {{ Request::is( 'create' ) ? 'active' : '' }}">
+                                <a class="nav-link d-flex align-items-center" href="/create"><i class="ion-ios-create mr-1"></i> Create</a>
+                            </li>
+                            <li class="nav-item d-flex {{ Request::is( 'login' ) ? 'active' : '' }}">
+                                <a class="nav-link d-flex align-items-center" href="/login"><i class="ion-ios-log-in mr-1"></i> Login</a>
+                            </li>
+                        </ul>
+                        <form action="/search" method="POST" class="form-inline my-2 my-lg-0">
+                            {{ csrf_field() }}
+                            <input class="form-control mr-sm-2 mr-xs-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                            <button class="btn btn-outline-light my-2 my-sm-0 btn-fab" type="submit"><i class="ion-ios-search"></i></button>
+                        </form>
+                    </div>
                 </div>
             </nav>
 
