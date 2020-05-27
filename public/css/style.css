@@ -4171,7 +4171,7 @@ input[type="button"].btn-block {
     text-align: center;
     white-space: nowrap;
     background-color: #e9ecef;
-    border: 1px solid #ced4da;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.25rem;
 }
 
@@ -12679,7 +12679,8 @@ h5,
     margin: 0 auto;
 }
 
-.form-login .card-body .input-group .form-control {
+.form-login .card-body .input-group .form-control,
+.clear-border {
     border-left: none;
 }
 
@@ -13051,4 +13052,8 @@ h5,
 
 .navbar-brand img {
     height: 70px;
+}
+
+.clear-border {
+    border-color: rgba(0, 0, 0, 0.1) !important;
 }
