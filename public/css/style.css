@@ -12034,8 +12034,8 @@ h5,
 .form-control:focus+.form-control-placeholder,
 .form-control:valid+.form-control-placeholder {
     font-size: 95%;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(-38px, -100%, 0);
+    transform: translate3d(-38px, -100%, 0);
     opacity: 1;
 }
 
@@ -13043,17 +13043,4 @@ h5,
 
 .ftco-navbar-light.scrolled .navbar-brand {
     color: #000 !important;
-}
-
-.navbar-brand {
-    font-weight: 700;
-    font-size: 22px;
-}
-
-.navbar-brand img {
-    height: 70px;
-}
-
-.clear-border {
-    border-color: rgba(0, 0, 0, 0.1) !important;
 }

@@ -3,3 +3,24 @@ a.disabled {
     pointer-events: none;
     cursor: default;
 }
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.navbar-brand img {
+    height: 70px;
+}
+
+.clear-border {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.clear-border-textarea {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.label-emphasis {
+    font-weight: bold;
+}
