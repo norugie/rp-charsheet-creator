@@ -1,16 +1,15 @@
 $(function () {
     //TinyMCE
     tinymce.init({
-        selector: ".tinymce_editor",
+        selector: ".editor",
         height: 500,
         plugins: [
             'advlist autolink lists link image charmap print preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code fullscreen',
             'insertdatetime nonbreaking save table directionality',
-            'emoticons paste textpattern imagetools'
+            'paste textpattern imagetools'
         ],
-        toolbar1: 'undo redo | styleselect | fontselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-        toolbar2: 'print preview | forecolor backcolor emoticons',
+        toolbar1: 'undo redo | styleselect | fontselect | fontsizeselect | forecolor backcolor | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview',
         relative_urls: false,
         remove_script_host: false,
         document_base_url: "http://127.0.0.1:8000", // Change origin URL once site is online
