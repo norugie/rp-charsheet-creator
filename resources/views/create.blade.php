@@ -114,61 +114,69 @@
     <script src="/js/tinymce/tinymce.min.js"></script>
     <script src="/js/editor.js"></script>
     <script>
-        ( function() {
+        ( function () {
             'use strict';
+
             window.addEventListener( 'load', function() {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName( 'needs-validation' );
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call( forms, function( form ) {
-                form.addEventListener( 'submit', function( event ) {
-                    if ( form.checkValidity() === false ) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add( 'was-validated' );
-                }, false );
+                const form = $( '.needs-validation' );
+                // Loop over forms and prevent submission
+                Array.prototype.filter.call( form, function( form ) 
+                {
+                    form.addEventListener( 'submit', function( event ) 
+                    {
+                        if ( form.checkValidity() === false ) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.addClass( 'was-validated' );
+                    }, false );
                 });
             }, false );
 
-            function noNegNmb (e) 
+            // Function for preventing negative signs and decimals
+            function noNegNmb ( keyPressed ) 
             {
                 if(! ( ( 
-                    e.keyCode > 95 && e.keyCode < 106) 
-                    || ( e.keyCode > 47 && e.keyCode < 58 ) 
-                    || e.keyCode == 8
-                    || e.keyCode == 9 
-                    || e.keyCode == 38 
-                    || e.keyCode == 40 ) ) return false;
+                    keyPressed.keyCode > 95 && keyPressed.keyCode < 106) 
+                    || ( keyPressed.keyCode > 47 && keyPressed.keyCode < 58 ) 
+                    || keyPressed.keyCode == 8
+                    || keyPressed.keyCode == 9 
+                    || keyPressed.keyCode == 38 
+                    || keyPressed.keyCode == 40 ) ) return false;
             }
 
-            function toggleField( hideObj, showObj )
+            //function for toggling custom field for gender and sexuality
+            function toggleField ( hideField, showField )
             {
-                hideObj.disabled = true;		
-                hideObj.style.display = 'none';
-                showObj.disabled = false;	
-                showObj.style.display = 'inline';
-                showObj.focus();
+                hideField.disabled = true;		
+                hideField.style.display = 'none';
+                showField.disabled = false;	
+                showField.style.display = 'inline';
+                showField.focus();
             }
 
-            $( "#apparent_age" ).keydown( noNegNmb );
-            $( "#age" ).keydown( noNegNmb );
-            $( "#gender_select" ).change( function() {
+            $( '#apparent_age' ).keydown( noNegNmb );
+            $( '#age' ).keydown( noNegNmb );
+            $( '#gender_select' ).change( function () 
+            {
                 if( this.options[ this.selectedIndex ].value == 'custom' ) { 
                     toggleField( this, this.nextSibling ); 
                     this.selectedIndex = '0'; 
                 }
             });
-            $( "#gender_custom" ).blur( function() {
+            $( '#gender_custom' ).blur( function () 
+            {
                 if( this.value == '' ) toggleField( this, this.previousSibling );
             });
-            $( "#sexuality_select" ).change( function() {
+            $( '#sexuality_select' ).change( function () 
+            {
                 if( this.options[ this.selectedIndex ].value == 'custom' ) { 
                     toggleField( this, this.nextSibling ); 
                     this.selectedIndex = '0'; 
                 }
             });
-            $( "#sexuality_custom" ).blur( function() {
+            $( '#sexuality_custom' ).blur( function () 
+            {
                 if( this.value == '' ) toggleField( this, this.previousSibling );
             });
 
