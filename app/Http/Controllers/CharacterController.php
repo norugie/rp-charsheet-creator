@@ -64,7 +64,13 @@ class CharacterController extends Controller
 
     }
 
-    public function createCharacter () {
+    public function createCharacterForm () 
+    {
         return view( 'create' );
+    }
+
+    public function createCharacter () 
+    {
+
     }
 }
