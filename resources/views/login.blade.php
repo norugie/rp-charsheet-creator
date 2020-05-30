@@ -1,6 +1,6 @@
-@extends ('layout.layout')
+@extends ( 'layout.layout' )
 
-@section ('content')
+@section ( 'content' )
 
     {{-- Login - User Login --}}
 

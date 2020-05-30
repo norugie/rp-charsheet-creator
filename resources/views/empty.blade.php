@@ -1,6 +1,6 @@
-@extends ('layout.layout')
+@extends ( 'layout.layout' )
 
-@section ('content')
+@section ( 'content' )
 
     <div class="col-md-8 mx-auto text-center">
         <h3>We are sorry - no results were found for your query</h3>

@@ -1,6 +1,6 @@
-@extends ('layout.layout')
+@extends ( 'layout.layout' )
 
-@section ('content')
+@section ( 'content' )
 
     {{-- Character - Create Character --}}
     <div class="col-lg-12">
@@ -53,13 +53,13 @@
                                 <i class="ion-ios-transgender"></i>
                             </span>
                         </div>
-                        <select id="gender_select" name="gender_select" class="form-control clear-border custom-select" onchange="if( this.options[ this.selectedIndex ].value == 'custom' ){ toggleField( this, this.nextSibling ); this.selectedIndex = '0'; }" required>
+                        <select id="gender_select" name="gender_select" class="form-control clear-border custom-select" required>
                             <option disabled selected hidden value="default">Gender options</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Non-binary">Non-binary</option>
                             <option value="custom">[ Other ]</option>
-                        </select><input type="text" id="gender_custom" name="gender_custom" class="form-control clear-border" style="display: none;" disabled="disabled" onblur="if( this.value == '' ){ toggleField( this, this.previousSibling ); }" placeholder="Specify your character's gender">
+                        </select><input type="text" id="gender_custom" name="gender_custom" class="form-control clear-border" style="display: none;" disabled="disabled" placeholder="Specify your character's gender">
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-xs-12">
@@ -70,7 +70,7 @@
                                 <i class="ion-ios-heart"></i>
                             </span>
                         </div>
-                        <select id="sexuality_select" name="sexuality_select" class="form-control clear-border custom-select" onchange="if( this.options[ this.selectedIndex ].value == 'custom' ){ toggleField( this, this.nextSibling ); this.selectedIndex = '0'; }" required>
+                        <select id="sexuality_select" name="sexuality_select" class="form-control clear-border custom-select" required>
                             <option hidden value="default">Sexuality Options</option>
                             <option value="Straight">Straight</option>
                             <option value="Bisexual">Bisexual</option>
@@ -79,7 +79,7 @@
                             <option value="Demisexual">Demisexual</option>
                             <option value="Asexual">Asexual</option>
                             <option value="custom">[ Other ]</option>
-                        </select><input type="text" id="sexuality_custom" name="sexuality_custom" class="form-control clear-border" style="display: none;" disabled="disabled" onblur="if( this.value == '' ){ toggleField( this, this.previousSibling ); }" placeholder="Specify your character's sexuality">
+                        </select><input type="text" id="sexuality_custom" name="sexuality_custom" class="form-control clear-border" style="display: none;" disabled="disabled" placeholder="Specify your character's sexuality">
                     </div>
                 </div>
             </div>
@@ -107,29 +107,29 @@
 
 @endsection
 
-@section ('scripts')
+@section ( 'scripts' )
 
     {{-- Character - Additional Page Scripts --}}
 
     <script src="/js/tinymce/tinymce.min.js"></script>
     <script src="/js/editor.js"></script>
     <script>
-        (function() {
+        ( function() {
             'use strict';
-            window.addEventListener('load', function() {
+            window.addEventListener( 'load', function() {
                 // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
+                var forms = document.getElementsByClassName( 'needs-validation' );
                 // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
+                var validation = Array.prototype.filter.call( forms, function( form ) {
+                form.addEventListener( 'submit', function( event ) {
+                    if ( form.checkValidity() === false ) {
+                        event.preventDefault();
+                        event.stopPropagation();
                     }
-                    form.classList.add('was-validated');
-                }, false);
+                    form.classList.add( 'was-validated' );
+                }, false );
                 });
-            }, false);
+            }, false );
 
             function noNegNmb (e) 
             {
@@ -151,8 +151,27 @@
                 showObj.focus();
             }
 
-            $("#apparent_age").keydown( noNegNmb );
-            $("#age").keydown( noNegNmb );
+            $( "#apparent_age" ).keydown( noNegNmb );
+            $( "#age" ).keydown( noNegNmb );
+            $( "#gender_select" ).change( function() {
+                if( this.options[ this.selectedIndex ].value == 'custom' ) { 
+                    toggleField( this, this.nextSibling ); 
+                    this.selectedIndex = '0'; 
+                }
+            });
+            $( "#gender_custom" ).blur( function() {
+                if( this.value == '' ) toggleField( this, this.previousSibling );
+            });
+            $( "#sexuality_select" ).change( function() {
+                if( this.options[ this.selectedIndex ].value == 'custom' ) { 
+                    toggleField( this, this.nextSibling ); 
+                    this.selectedIndex = '0'; 
+                }
+            });
+            $( "#sexuality_custom" ).blur( function() {
+                if( this.value == '' ) toggleField( this, this.previousSibling );
+            });
+
         })();
     </script>
     
