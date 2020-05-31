@@ -71,6 +71,12 @@ class CharacterController extends Controller
 
     public function createCharacter () 
     {
-
+        $charname = request( 'charname' );
+        $apparent_age = request( 'apparent_age' );
+        if (! request( 'age' ) ? $age = $apparent_age : $age = request( 'age' ) );
+        if (! request( 'gender_select' ) ? $gender = request( 'gender_custom' ) : $gender = request( 'gender_select' ) );
+        if (! request( 'sexuality_select' ) ? $sexuality = request( 'sexuality_custom' ) : $sexuality = request( 'sexuality_select' ) );
+        if (! request( 'chardesc' ) ? $chardesc = 'No character description given.' : $chardesc = request( 'chardesc' ));
+        $info = request( 'info' );
     }
 }
