@@ -5,7 +5,8 @@
     {{-- Character - Create Character --}}
     <div class="col-lg-12">
         <p class="font-12"><b>Note:</b> Fields marked with an asterisk are required</p>
-        <form class="needs-validation" action="" method="POST" novalidate>
+        <form class="needs-validation" action="/create" method="POST" novalidate>
+            {{ csrf_field() }}
             <div class="row">
                 <div class="col-lg-12">
                     <label class="label-emphasis" for="charname">Character Name *</label>
@@ -128,7 +129,7 @@
                             event.preventDefault();
                             event.stopPropagation();
                         }
-                        form.addClass( 'was-validated' );
+                        form.classList.add( 'was-validated' );
                     }, false );
                 });
             }, false );
