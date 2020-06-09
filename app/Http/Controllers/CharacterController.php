@@ -39,8 +39,8 @@ class CharacterController extends Controller
 
         if (! $character ) return view( 'empty' );
 
-        $author = Character::find($character->id)->author;
-        $images = Character::find($character->id)->images;
+        $author = Character::find( $character->id )->author;
+        $images = Character::find( $character->id )->images;
 
         return view( 'character',
         [
