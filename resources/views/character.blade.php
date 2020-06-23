@@ -4,7 +4,7 @@
 
     {{-- Character - Create Character --}}
 
-    <h3>{{ $character->info }}</h3>
+    <h3>{!! $character->info !!}</h3>
     <h5>{{ $author->name }}</h5>
     <br>
     @foreach ( $images as $image )
