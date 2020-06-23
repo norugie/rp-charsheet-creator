@@ -71,12 +71,18 @@ class CharacterController extends Controller
 
     public function createCharacter () 
     {
-        $charname = request( 'charname' );
-        $apparent_age = request( 'apparent_age' );
-        if (! request( 'age' ) ? $age = $apparent_age : $age = request( 'age' ) );
-        if (! request( 'gender_select' ) ? $gender = request( 'gender_custom' ) : $gender = request( 'gender_select' ) );
-        if (! request( 'sexuality_select' ) ? $sexuality = request( 'sexuality_custom' ) : $sexuality = request( 'sexuality_select' ) );
-        if (! request( 'chardesc' ) ? $chardesc = 'No character description given.' : $chardesc = request( 'chardesc' ));
-        $info = request( 'info' );
+        $character = new Character();
+
+        $character->slug = strtolower( str_replace( ' ', '-', request( 'charname' ) ) ) . '-' . rand( 1111, 9999 );
+        $character->char_name = request( 'charname' );
+        $character->apparent_age = request( 'apparent_age' );
+        if (! request( 'age' ) ? $character->age = request( 'apparent_age' ) : $character->age = request( 'age' ) );
+        if (! request( 'gender_select' ) ? $character->gender = request( 'gender_custom' ) : $character->gender = request( 'gender_select' ) );
+        if (! request( 'sexuality_select' ) ? $character->sexuality = request( 'sexuality_custom' ) : $character->sexuality = request( 'sexuality_select' ) );
+        if (! request( 'chardesc' ) ? $character->chardesc = 'No character description given.' : $character->chardesc = request( 'chardesc' ));
+        $character->cover_img = 'default.png';
+        $character->author_id = 1;
+
+        //$character->save();
     }
 }

@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <label class="label-emphasis" for="info">Character Information</label>
-                    <textarea id="info" class="form-control clear-border-textarea editor"></textarea>
+                    <textarea id="info" name="info" class="form-control clear-border-textarea editor"></textarea>
                 </div>
             </div>
             <br>
