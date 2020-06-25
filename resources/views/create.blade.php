@@ -1,5 +1,9 @@
 @extends ( 'layout.layout' )
 
+@section ( 'header' )
+    <link rel="stylesheet" href="/js/dropzone/dist/min/dropzone.min.css">  
+@endsection
+
 @section ( 'content' )
 
     {{-- Character - Create Character --}}
@@ -54,8 +58,8 @@
                                 <i class="ion-ios-transgender"></i>
                             </span>
                         </div>
-                        <select id="gender_select" name="gender_select" class="form-control clear-border custom-select" required>
-                            <option disabled selected hidden value="default">Gender options</option>
+                        <select id="gender_select" name="gender_select" class="form-control clear-border custom-select">
+                            <option hidden value="Male">Gender options</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Non-binary">Non-binary</option>
@@ -71,8 +75,8 @@
                                 <i class="ion-ios-heart"></i>
                             </span>
                         </div>
-                        <select id="sexuality_select" name="sexuality_select" class="form-control clear-border custom-select" required>
-                            <option hidden value="default">Sexuality Options</option>
+                        <select id="sexuality_select" name="sexuality_select" class="form-control clear-border custom-select">
+                            <option hidden value="Straight">Sexuality Options</option>
                             <option value="Straight">Straight</option>
                             <option value="Bisexual">Bisexual</option>
                             <option value="Homosexual">Homosexual</option>
@@ -100,6 +104,15 @@
             <br>
             <div class="row">
                 <div class="col-lg-12">
+                    <label class="label-emphasis" for="info">Character Gallery</label>
+                    <div id="dropzone-gallery" class="dropzone">
+                        <div class="dz-default dz-message"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
                     <button class="btn btn-dark btn-lg btn-block" value="submit">SUBMIT NEW CHARACTER</button>
                 </div>
             </div>
@@ -113,11 +126,13 @@
     {{-- Character - Additional Page Scripts --}}
 
     <script src="/js/tinymce/tinymce.min.js"></script>
+    <script src="/js/dropzone/dist/min/dropzone.min.js"></script>
     <script src="/js/editor.js"></script>
     <script>
         ( function () {
             'use strict';
 
+            // Validating inputs
             window.addEventListener( 'load', function() {
                 const form = $( '.needs-validation' );
                 // Loop over forms and prevent submission
@@ -181,6 +196,9 @@
                 if( this.value == '' ) toggleField( this, this.previousSibling );
             });
 
+            // Configuring Dropzone
+            Dropzone.autoDiscover = false;
+            $( '#dropzone-gallery' ).dropzone({ url: "/upload" });
         })();
     </script>
     

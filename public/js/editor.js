@@ -9,7 +9,7 @@ $(function () {
             'insertdatetime nonbreaking save table directionality',
             'paste textpattern imagetools'
         ],
-        toolbar1: 'undo redo | styleselect | fontselect | fontsizeselect | forecolor backcolor | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview',
+        toolbar1: 'undo redo | styleselect | fontselect | fontsizeselect | forecolor backcolor | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview fullscreen',
         relative_urls: false,
         remove_script_host: false,
         document_base_url: "http://127.0.0.1:8000", // Change origin URL once site is online

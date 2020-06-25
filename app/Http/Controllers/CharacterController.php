@@ -84,5 +84,6 @@ class CharacterController extends Controller
         $character->author_id = 1;
 
         //$character->save();
+        dd($character);
     }
 }
