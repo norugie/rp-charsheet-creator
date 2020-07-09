@@ -1,6 +1,7 @@
 @extends ( 'layout.layout' )
 
 @section ( 'header' )
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/js/dropzone/dist/min/dropzone.min.css">  
 @endsection
 
@@ -10,7 +11,6 @@
     <div class="col-lg-12">
         <p class="font-12"><b>Note:</b> Fields marked with an asterisk are required</p>
         <form class="needs-validation" action="/create" method="POST" novalidate>
-            {{ csrf_field() }}
             <div class="row">
                 <div class="col-lg-12">
                     <label class="label-emphasis" for="charname">Character Name *</label>
@@ -198,7 +198,18 @@
 
             // Configuring Dropzone
             Dropzone.autoDiscover = false;
-            $( '#dropzone-gallery' ).dropzone({ url: "/upload" });
+
+            var CSRF_TOKEN = document.querySelector( 'meta[name="csrf-token"]' ).getAttribute( 'content' );
+            $( '#dropzone-gallery' ).dropzone({ 
+                url: '/gallery',
+                maxFilesize: 3,  // 3 mb
+                acceptedFiles: '.jpeg, .jpg, .png,',
+                init: function() {
+                    this.on( 'sending', function( file, xhr, formData ) {
+                        formData.append('_token', CSRF_TOKEN);
+                    });
+                }
+            });
         })();
     </script>
     
