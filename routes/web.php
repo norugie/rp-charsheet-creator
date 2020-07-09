@@ -28,3 +28,4 @@ Route::get( '/login', 'IndexController@login' );
 
 // Miscellaneous Routes
 Route::post( '/upload', 'IndexController@uploadImageTinyMCE' );
+Route::post( '/gallery', 'IndexController@uploadImageDropzoneJS' );
