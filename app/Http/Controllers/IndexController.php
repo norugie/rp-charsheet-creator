@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 
 class IndexController extends Controller
 {
@@ -21,5 +22,12 @@ class IndexController extends Controller
         $file->move( public_path( $url ), $file->getClientOriginalName() );
 
         if ( $type === 'editor' ) return json_encode([ 'location' => $file_name_to_store ]);
+    }
+
+    public function deleteImage (Request $request)
+    {
+        $filename = $request->filename;
+        $path = public_path() . '/images/char_images/' . $filename;
+        File::delete( $path );
     }
 }
