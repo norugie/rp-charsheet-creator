@@ -11,25 +11,15 @@ class IndexController extends Controller
         return view( 'login' );
     }
 
-    public function uploadImageDropzoneJS ( Request $request )
+    public function uploadImage ( Request $request, $type )
     {
         $file = $request->file( 'file' );
-        $url = '/images/char_images';
-        $path = url( $url ) . '/' . $file->getClientOriginalName();
-        $file_name_to_store = $path;
-
-        $file->move( public_path( $url ), $file->getClientOriginalName() );
-    }
-
-    public function uploadImageTinyMCE ( Request $request )
-    {
-        $file = $request->file( 'file' );
-        $url = '/images/uploads';
+        if ( $type === 'editor' ? $url = '/images/uploads' : $url = '/images/char_images' );
         $path = url( $url ) . '/' . $file->getClientOriginalName();
         $file_name_to_store = $path;
 
         $file->move( public_path( $url ), $file->getClientOriginalName() );
 
-        return json_encode([ 'location' => $file_name_to_store ]);
+        if ( $type === 'editor' ) return json_encode([ 'location' => $file_name_to_store ]);
     }
 }

@@ -1,7 +1,7 @@
 @extends ( 'layout.layout' )
 
 @section ( 'header' )
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/js/dropzone/dist/min/dropzone.min.css">  
 @endsection
 
@@ -161,7 +161,7 @@
                     || keyPressed.keyCode == 40 ) ) return false;
             }
 
-            //function for toggling custom field for gender and sexuality
+            // Function for toggling custom field for gender and sexuality
             function toggleField ( hideField, showField )
             {
                 hideField.disabled = true;		
@@ -199,14 +199,14 @@
             // Configuring Dropzone
             Dropzone.autoDiscover = false;
 
-            var CSRF_TOKEN = document.querySelector( 'meta[name="csrf-token"]' ).getAttribute( 'content' );
+            var token = document.querySelector( 'meta[name="csrf-token"]' ).getAttribute( 'content' );
             $( '#dropzone-gallery' ).dropzone({ 
-                url: '/gallery',
+                url: '/upload/gallery',
                 maxFilesize: 3,  // 3 mb
                 acceptedFiles: '.jpeg, .jpg, .png,',
                 init: function() {
                     this.on( 'sending', function( file, xhr, formData ) {
-                        formData.append('_token', CSRF_TOKEN);
+                        formData.append('_token', token);
                     });
                 }
             });

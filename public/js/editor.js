@@ -14,7 +14,7 @@ $(function () {
         remove_script_host: false,
         document_base_url: "http://127.0.0.1:8000", // Change origin URL once site is online
         image_advtab: true,
-        images_upload_url: '/upload',
+        images_upload_url: '/upload/editor',
         image_class_list: [{
             title: 'Responsive',
             value: 'img-responsive img-fluid'
@@ -26,7 +26,9 @@ $(function () {
 
             xhr = new XMLHttpRequest();
             xhr.withCredentials = false;
-            xhr.open('POST', '/upload');
+            xhr.open('POST', '/upload/editor');
+            var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            xhr.setRequestHeader('X-CSRF-Token', token);
             xhr.onload = function () {
                 var json;
 
