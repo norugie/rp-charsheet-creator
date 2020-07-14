@@ -28,3 +28,4 @@ Route::get( '/login', 'IndexController@login' );
 
 // Miscellaneous Routes
 Route::post( '/upload/{type}', 'IndexController@uploadImage' );
+Route::post( '/delete/gallery', 'IndexController@deleteImage' );
