@@ -20,7 +20,7 @@ $(function () {
             value: 'img-responsive img-fluid'
         }],
 
-        // Override default upload handler to simulate successful upload
+        // Override default upload handler
         images_upload_handler: function (blobInfo, success, failure) {
             var xhr, formData;
 

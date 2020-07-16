@@ -22,7 +22,7 @@ class CharacterController extends Controller
         ]);
     }
 
-    public function showCharacterListPerUser ( $username )
+    public function showCharacterListPerUser ( String $username )
     {
         $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'users.username', $username )->get();
 
@@ -34,7 +34,7 @@ class CharacterController extends Controller
         ]);
     }
 
-    public function showCharacterInfo ( $slug )
+    public function showCharacterInfo ( String $slug )
     {
         $character = Character::where( 'slug', $slug )->first();
 
@@ -70,6 +70,11 @@ class CharacterController extends Controller
         return view( 'create' );
     }
 
+    public function createCharacterGallery ( Int $id, String $filename )
+    {
+        echo $id;
+    }
+
     public function createCharacter () 
     {
         $character = new Character();
@@ -81,10 +86,15 @@ class CharacterController extends Controller
         if (! request( 'gender_select' ) ? $character->gender = request( 'gender_custom' ) : $character->gender = request( 'gender_select' ) );
         if (! request( 'sexuality_select' ) ? $character->sexuality = request( 'sexuality_custom' ) : $character->sexuality = request( 'sexuality_select' ) );
         if (! request( 'chardesc' ) ? $character->chardesc = 'No character description given.' : $character->chardesc = request( 'chardesc' ));
-        $character->cover_img = 'default.png';
+        $images = request( 'image_name' );
+        if (! $images )
+            $character->cover_img = 'default.png';
+        else {
+            $image_array = explode( ',', rtrim( $images, ',' ) );
+            $character->cover_img = $image_array[array_rand( $image_array )];
+        }
         $character->author_id = 1;
 
-        //$character->save();
         dd($character);
     }
 }

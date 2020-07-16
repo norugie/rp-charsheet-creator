@@ -24,7 +24,7 @@ class IndexController extends Controller
         if ( $type === 'editor' ) return json_encode([ 'location' => $file_name_to_store ]);
     }
 
-    public function deleteImage (Request $request)
+    public function deleteImage ( Request $request )
     {
         $filename = $request->filename;
         $path = public_path() . '/images/char_images/' . $filename;
