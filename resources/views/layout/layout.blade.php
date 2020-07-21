@@ -65,7 +65,7 @@
             <div class="ftco-section">
                 <div class="container">
                     <div class="row">
-                        @yield ('content')
+                        @yield ( 'content' )
                     </div>
                 </div>
             </div>
@@ -74,9 +74,9 @@
             <footer class="ftco-section ftco-section-2">
                 <div class="col-md-12 text-center">
                     <p class="mb-0">
-                        <!-- Link back to Colorlib and Smashicons can't be removed. -->
-                        &copy; <script>document.write(new Date().getFullYear());</script>. RPCSC | Template by <a href="https://colorlib.com" target="_blank">Colorlib</a> | Logo by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>
-                        <!-- Link back to Colorlib and Smashicons can't be removed. -->
+                        <!-- Link back to Colorlib can't be removed. -->
+                        &copy; <script>document.write(new Date().getFullYear());</script>. RPCSC | Template by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. -->
                     </p>
                 </div>
             </footer>
@@ -99,7 +99,7 @@
         <script src="/js/aos.js"></script>
 
         {{-- Additional Page Scripts --}}
-        @yield ( 'scripts' )
+        @yield ( 'footer' )
         
         <script src="/js/main.js"></script>
 
