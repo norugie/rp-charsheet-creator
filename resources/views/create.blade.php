@@ -1,8 +1,11 @@
 @extends ( 'layout.layout' )
 
 @section ( 'header' )
+
+    {{-- Additional header tags for page: /create --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="/js/dropzone/dist/min/dropzone.min.css">  
+    <link rel="stylesheet" href="/js/dropzone/dist/min/dropzone.min.css">
+
 @endsection
 
 @section ( 'content' )
@@ -123,14 +126,13 @@
 
 @endsection
 
-@section ( 'scripts' )
+@section ( 'footer' )
 
-    {{-- Character - Additional Page Scripts --}}
-
+    {{-- Additional scripts for page: /create --}}
     <script src="/js/tinymce/tinymce.min.js"></script>
     <script src="/js/dropzone/dist/min/dropzone.min.js"></script>
     <script src="/js/editor.js"></script>
     <script src="/js/dropzone.js"></script>
     <script src="/js/character.js"></script>
-    
+
 @endsection
