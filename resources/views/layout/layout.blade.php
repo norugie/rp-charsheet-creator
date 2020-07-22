@@ -33,7 +33,7 @@
         <div class="main-section">
 
             {{-- Navigation --}}
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <nav class="navbar navbar-expand-md navbar-light bg-dark">
                 <div class="container">
                     <a class="navbar-brand" href="/"><img src="/images/icons/rpcsc.png" class="img-fluid" alt="RPCSC Icon"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-rpchcr" aria-controls="navbar-rpchcr" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,8 +54,8 @@
                         </ul>
                         <form action="/search" method="POST" class="form-inline my-2 my-lg-0">
                             {{ csrf_field() }}
-                            <input class="form-control mr-sm-2 mr-xs-2" type="search" placeholder="Search" name="search" aria-label="Search">
-                            <button class="btn btn-outline-light my-2 my-sm-0 btn-fab" type="submit"><i class="ion-ios-search"></i></button>
+                            <input class="form-control mr-xsm search-input" type="search" placeholder="Search keyword. . ." name="search" aria-label="Search">
+                            <button class="btn btn-outline-light my-2 my-sm-2 btn-fab btn-blk-small" type="submit"><i class="ion-ios-search"></i> Search</button>
                         </form>
                     </div>
                 </div>
