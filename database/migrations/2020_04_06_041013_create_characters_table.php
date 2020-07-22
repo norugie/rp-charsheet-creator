@@ -25,7 +25,7 @@ class CreateCharactersTable extends Migration
             $table->text('info')->nullable();
             $table->string('cover_img');
             $table->biginteger('author_id')->unsigned()->index();
-            $table->timestamp('published_at')->useCurrent();
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
 

@@ -12,7 +12,7 @@ class CharacterController extends Controller
 
     public function showCharacterList ()
     {
-        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->get();
+        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->whereNotNull( 'characters.published_at' )->get();
 
         if(! $characters->count() ) return view( 'empty' );
 
@@ -72,29 +72,45 @@ class CharacterController extends Controller
 
     public function createCharacterGallery ( Int $id, String $filename )
     {
-        echo $id;
+        $image = new Images();
+        $image->char_filename = $filename;
+        $image->char_id = $id;
+
+        // Save current image object
+        $image->save();
     }
 
     public function createCharacter () 
     {
         $character = new Character();
 
-        $character->slug = strtolower( str_replace( ' ', '-', request( 'charname' ) ) ) . '-' . rand( 1111, 9999 );
+        $character->slug = rand( 1111, 9999 ) . '-' . strtolower( str_replace( ' ', '-', request( 'charname' ) ) );
         $character->char_name = request( 'charname' );
         $character->apparent_age = request( 'apparent_age' );
         if (! request( 'age' ) ? $character->age = request( 'apparent_age' ) : $character->age = request( 'age' ) );
         if (! request( 'gender_select' ) ? $character->gender = request( 'gender_custom' ) : $character->gender = request( 'gender_select' ) );
         if (! request( 'sexuality_select' ) ? $character->sexuality = request( 'sexuality_custom' ) : $character->sexuality = request( 'sexuality_select' ) );
         if (! request( 'chardesc' ) ? $character->chardesc = 'No character description given.' : $character->chardesc = request( 'chardesc' ));
+        $character->author_id = 1;
         $images = request( 'image_name' );
-        if (! $images )
+        if (! $images ) {
             $character->cover_img = 'default.png';
-        else {
+            // Save current character object
+            $character->save();
+        } else {
             $image_array = explode( ',', rtrim( $images, ',' ) );
             $character->cover_img = $image_array[array_rand( $image_array )];
-        }
-        $character->author_id = 1;
+            
+            // Save current character object
+            $character->save();
 
-        dd($character);
+            // Save character gallery
+            foreach( $image_array as $image ):
+                $this->createCharacterGallery( $character->id, $image );
+            endforeach;
+        }
+
+        return redirect( '/character/' . $character->slug );
+
     }
 }
