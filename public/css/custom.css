@@ -24,3 +24,17 @@ a.disabled {
 .label-emphasis {
     font-weight: bold;
 }
+
+@media (max-width: 766px) {
+    .btn-blk-small,
+    .search-input {
+        display: block!important;
+        width: 100%!important;
+    }
+}
+
+@media (min-width: 766px) {
+    .mr-xsm {
+        margin-right: 0.5rem !important;
+    }
+}
