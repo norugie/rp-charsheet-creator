@@ -26,10 +26,11 @@ a.disabled {
 }
 
 @media (max-width: 766px) {
+
     .btn-blk-small,
     .search-input {
-        display: block!important;
-        width: 100%!important;
+        display: block !important;
+        width: 100% !important;
     }
 }
 
