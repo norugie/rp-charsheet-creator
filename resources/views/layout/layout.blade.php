@@ -65,6 +65,7 @@
             <div class="ftco-section">
                 <div class="container">
                     <div class="row">
+                        @yield ( 'notice' )
                         @yield ( 'content' )
                     </div>
                 </div>

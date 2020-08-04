@@ -1,6 +1,6 @@
 @extends ( 'layout.layout' )
 
-@section ( 'content' )
+@section ( 'notice' )
 
     {{-- Character - Notices --}}
     <div class="alert alert-info">
@@ -17,6 +17,10 @@
             </center>
         </div>
     </div>
+
+@endsection
+
+@section ( 'content' )
     
     {{-- Character - Show Character --}}
     <h3>{!! $character->info !!}</h3>
