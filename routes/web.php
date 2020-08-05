@@ -15,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 // Character Routes - Create
 Route::get( '/create', 'CharacterController@createCharacterForm' );
-route::post( '/create', 'CharacterController@createCharacter');
+Route::post( '/create', 'CharacterController@createCharacter');
+Route::get( '/publish/{slug}', 'CharacterController@publishCharacter' );
 
 // Character Routes - Show
 Route::get( '/', 'CharacterController@showCharacterList' );
-Route::get( '/character/{id}', 'CharacterController@showCharacterInfo' );
+Route::get( '/character/{slug}', 'CharacterController@showCharacterInfo' );
 Route::get( '/users/{username}', 'CharacterController@showCharacterListPerUser' );
 Route::post( '/search', 'CharacterController@searchCharacter' );
 

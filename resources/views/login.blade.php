@@ -8,7 +8,7 @@
         <div class="card card-login py-4">
             <form class="form-login" method="" action="">
                 <div class="card-header card-header-primary text-center">
-                    <h4 class="card-title">RPSCS</h4>
+                    <h4 class="card-title">RPCSC</h4>
                 </div>
                 <p class="description text-center">Login to your account</p>
                 <div class="card-body p-4">
