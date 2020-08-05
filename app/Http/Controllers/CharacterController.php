@@ -62,7 +62,6 @@ class CharacterController extends Controller
         [
             'characters' => $characters
         ]);
-
     }
 
     public function createCharacterForm () 
@@ -111,6 +110,15 @@ class CharacterController extends Controller
         }
 
         return redirect( '/character/' . $character->slug );
+    }
 
+    public function publishCharacter ( String $slug )
+    {
+        $character = Character::where( 'slug', $slug )->first();
+
+        $character->published_at =  date('Y-m-d H:i:s');
+        $character->save();
+
+        return redirect( '/character/' . $slug );
     }
 }
