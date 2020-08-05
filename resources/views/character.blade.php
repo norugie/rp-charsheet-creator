@@ -25,15 +25,48 @@
 @section ( 'content' )
     
     {{-- Character - Show Character --}}
-    <h3>{!! $character->info !!}</h3>
-    <h5>{{ $author->name }}</h5>
-    <br>
-    @foreach ( $images as $image )
-        <div class="col-md-3">
-            <div class="card">
-                <img src="/images/char_images/{{ $image->char_filename }}" class="card-img-top" alt="...">
+    <div class="col-lg-9">
+        {{-- Character - Show Character Content --}}
+        <h2 class="heading-section">Character Gallery</h2>
+        <div class="row">
+            @foreach ( $images as $image )
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="/images/char_images/{{ $image->char_filename }}" class="card-img-top" alt="...">
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="col-lg-3">
+        {{-- Character - Show Character Sidebar --}}
+        <h3 class="heading-section">Author</h3>
+        <div class="row">
+            <div class="col-lg-3">
+                <img src="/images/user_images/default.png" alt="User Profile Image" class="img-fluid mx-auto">
+            </div>
+            <div class="col-lg-9">
+                <h3 class="heading-section">
+                    <small>{{ $author->name }}</small>
+                </h3>
             </div>
         </div>
-    @endforeach
+        <h2 class="heading-section">
+            <small> View other works by {{ $author->name }}</small>
+        </h2>
+        @foreach( $works as $work )
+            <div class="row mb-2">
+                <div class="col-lg-3">
+                    <img src="/images/char_images/{{ $work->cover_img }}" class="img-fluid mx-auto" alt="Character Cover Image">
+                </div>
+                <div class="col-lg-9">
+                    <h3 class="heading-section">
+                        <small><a href="/character/{{ $work->slug }}">{{ $work->char_name }}</a></small>
+                    </h3>
+                    <p></p>
+                </div>
+            </div>
+        @endforeach
+    </div>
 
 @endsection
