@@ -15,10 +15,13 @@ class IndexController extends Controller
     public function uploadImage ( Request $request, $type )
     {
         $file = $request->file( 'file' );
+
+        // Set path for image
         if ( $type === 'editor' ? $url = '/images/uploads' : $url = '/images/char_images' );
         $path = url( $url ) . '/' . $file->getClientOriginalName();
         $file_name_to_store = $path;
 
+        // Upload image to designated image folder
         $file->move( public_path( $url ), $file->getClientOriginalName() );
 
         if ( $type === 'editor' ) return json_encode([ 'location' => $file_name_to_store ]);
@@ -28,6 +31,6 @@ class IndexController extends Controller
     {
         $filename = $request->filename;
         $path = public_path() . '/images/char_images/' . $filename;
-        File::delete( $path );
+        if( File::exists( $path ) ) File::delete( $path );
     }
 }

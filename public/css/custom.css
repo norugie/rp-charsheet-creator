@@ -39,3 +39,12 @@ a.disabled {
         margin-right: 0.5rem !important;
     }
 }
+
+@media (min-width: 1900px) {
+    .col-xxl-2 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 16.66667%;
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+}
