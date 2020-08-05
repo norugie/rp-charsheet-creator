@@ -94,6 +94,7 @@ class CharacterController extends Controller
         $images = request( 'image_name' );
         if (! $images ) {
             $character->cover_img = 'default.png';
+            
             // Save current character object
             $character->save();
         } else {
@@ -115,8 +116,11 @@ class CharacterController extends Controller
     public function publishCharacter ( String $slug )
     {
         $character = Character::where( 'slug', $slug )->first();
-
+        
+        // Update published date
         $character->published_at =  date('Y-m-d H:i:s');
+        
+        // Save current character object
         $character->save();
 
         return redirect( '/character/' . $slug );

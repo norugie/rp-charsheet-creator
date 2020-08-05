@@ -4,7 +4,7 @@
 
     {{-- Index - Character Sheet List --}}
     @foreach ( $characters as $character )
-        <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6">
             <div class="card">
                 <img src="/images/char_images/{{ $character->cover_img }}" class="card-img-top" alt="...">
                 <div class="card-body">
