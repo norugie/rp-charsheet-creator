@@ -143,8 +143,7 @@ blockquote {
     margin: 0 0 1rem;
 }
 
-b,
-strong {
+b {
     font-weight: bolder;
 }
 
@@ -11720,7 +11719,7 @@ body {
     font-size: 14px;
     line-height: 1.8;
     font-weight: 300;
-    color: #777777;
+    color: #212529;
 }
 
 body.menu-show {
@@ -11731,7 +11730,7 @@ body.menu-show {
 }
 
 span {
-    color: #bfbfbf;
+    color: #212529;
 }
 
 a {

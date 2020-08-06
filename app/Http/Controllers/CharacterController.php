@@ -104,6 +104,7 @@ class CharacterController extends Controller
         if (! request( 'gender_select' ) ? $character->gender = request( 'gender_custom' ) : $character->gender = request( 'gender_select' ) );
         if (! request( 'sexuality_select' ) ? $character->sexuality = request( 'sexuality_custom' ) : $character->sexuality = request( 'sexuality_select' ) );
         if (! request( 'chardesc' ) ? $character->chardesc = 'No character description given.' : $character->chardesc = request( 'chardesc' ));
+        $character->info = request( 'info' );
         $character->author_id = 1;
         $images = request( 'image_name' );
         if (! $images ) {
