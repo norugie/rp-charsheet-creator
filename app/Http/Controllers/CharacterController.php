@@ -12,8 +12,10 @@ class CharacterController extends Controller
 
     public function showCharacterList ()
     {
+        // Get list of published characters
         $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->whereNotNull( 'characters.published_at' )->get();
 
+        // Redirect to 404 page if list is empty
         if(! $characters->count() ) return view( 'empty' );
 
         return view( 'index',
@@ -24,8 +26,10 @@ class CharacterController extends Controller
 
     public function showCharacterListPerUser ( String $username )
     {
-        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'users.username', $username )->get();
+        // Get list of published characters per user
+        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'users.username', $username )->whereNotNull( 'characters.published_at' )->get();
 
+        // Redirect to 404 page if list is empty
         if(! $characters->count() ) return view( 'empty' );
 
         return view( 'index',
@@ -36,12 +40,17 @@ class CharacterController extends Controller
 
     public function showCharacterInfo ( String $slug )
     {
+        // Get character info
         $character = Character::where( 'slug', $slug )->first();
 
+        // Redirect to 404 page if list is empty
         if (! $character ) return view( 'empty' );
 
+        // Get character's author info
         $author = Character::find( $character->id )->author;
+        // Get character's images
         $images = Character::find( $character->id )->images;
+        // Get author's other works
         $works  = User::find( $author->id )->characters()->whereNotNull( 'published_at' )->inRandomOrder()->limit( 3 )->get();
 
         return view( 'character',
@@ -56,8 +65,11 @@ class CharacterController extends Controller
     public function searchCharacter ()
     {
         $query = request( 'search' );
-        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'characters.char_name', 'ILIKE', '%'.$query.'%' )->orWhere( 'users.name', 'ILIKE', '%'.$query.'%' )->get();
 
+        // Get character list for search results
+        $characters = Character::join( 'users', 'characters.author_id', '=', 'users.id' )->where( 'characters.char_name', 'ILIKE', '%'.$query.'%' )->orWhere( 'users.name', 'ILIKE', '%'.$query.'%' )->whereNotNull( 'characters.published_at' )->get();
+
+        // Redirect to 404 page if list is empty
         if(! $characters->count() ) return view( 'empty' );
 
         return view( 'index',
@@ -101,6 +113,7 @@ class CharacterController extends Controller
             $character->save();
         } else {
             $image_array = explode( ',', rtrim( $images, ',' ) );
+            // Pick random image from image array to set as cover image
             $character->cover_img = $image_array[array_rand( $image_array )];
             
             // Save current character object
@@ -117,6 +130,7 @@ class CharacterController extends Controller
 
     public function publishCharacter ( String $slug )
     {
+        // Get unpublished character
         $character = Character::where( 'slug', $slug )->first();
         
         // Update published date
