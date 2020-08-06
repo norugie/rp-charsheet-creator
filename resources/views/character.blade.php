@@ -10,7 +10,7 @@
                     <div class="alert-icon">
                         <i class="ion-ios-information-circle-outline"></i>
                     </div>
-                    <p class="mb-0 ml-2"><b>This character is currently not published.</b> You can create an account to author this character or publish this character anonymously.</p>
+                    <p class="mb-2 ml-2"><b>This character is currently not published.</b> You can create an account to author this character or publish this character anonymously.</p>
                 </div>
                 <center>
                     <button type="button" class="btn btn-outline-info btn-sm">Create an account</button>
@@ -27,6 +27,10 @@
     {{-- Character - Show Character --}}
     <div class="col-lg-9">
         {{-- Character - Show Character Content --}}
+        <h3 class="heading-section text-center">{{ $character->char_name }}</h3>
+        <div class="character-content">
+            {!! $character->info !!}
+        </div>
         <h4 class="heading-section">Character Gallery</h4>
         <div class="row">
             @foreach ( $images as $image )
@@ -42,10 +46,10 @@
         {{-- Character - Show Character Sidebar --}}
         <h4 class="heading-section">Author</h4>
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-3">
                 <img src="/images/user_images/default.png" alt="User Profile Image" class="img-fluid mx-auto">
             </div>
-            <div class="col-lg-9">
+            <div class="col-9">
                 <h3 class="heading-section">
                     <small>{{ $author->name }}</small>
                 </h3>
@@ -57,10 +61,10 @@
         </h6>
         @foreach( $works as $work )
             <div class="row mb-2 mt-2">
-                <div class="col-lg-3">
+                <div class="col-3">
                     <img src="/images/char_images/{{ $work->cover_img }}" class="img-fluid mx-auto" alt="Character Cover Image">
                 </div>
-                <div class="col-lg-9">
+                <div class="col-9">
                     <h3 class="heading-section">
                         <small><a href="/character/{{ $work->slug }}">{{ $work->char_name }}</a></small>
                     </h3>

@@ -25,6 +25,10 @@ a.disabled {
     font-weight: bold;
 }
 
+.character-content {
+    all: unset;
+}
+
 @media (max-width: 766px) {
 
     .btn-blk-small,
