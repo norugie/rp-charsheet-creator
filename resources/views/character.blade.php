@@ -14,7 +14,7 @@
                 </div>
                 <center>
                     <button type="button" class="btn btn-outline-info btn-sm">Create an account</button>
-                    <a href="/publish/{{ $character->slug }}"><button type="button" class="btn btn-outline-info btn-sm">Publish character</button></a>
+                    <a href="/publish/{{ $character->slug }}" class="btn btn-outline-info btn-sm">Publish character</a>
                 </center>
             </div>
         </div>
@@ -27,10 +27,10 @@
     {{-- Character - Show Character --}}
     <div class="col-lg-9">
         {{-- Character - Show Character Content --}}
-        <h2 class="heading-section">Character Gallery</h2>
+        <h4 class="heading-section">Character Gallery</h4>
         <div class="row">
             @foreach ( $images as $image )
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <img src="/images/char_images/{{ $image->char_filename }}" class="card-img-top" alt="...">
                     </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="col-lg-3">
         {{-- Character - Show Character Sidebar --}}
-        <h3 class="heading-section">Author</h3>
+        <h4 class="heading-section">Author</h4>
         <div class="row">
             <div class="col-lg-3">
                 <img src="/images/user_images/default.png" alt="User Profile Image" class="img-fluid mx-auto">
@@ -51,11 +51,12 @@
                 </h3>
             </div>
         </div>
-        <h2 class="heading-section">
-            <small> View other works by {{ $author->name }}</small>
-        </h2>
+        <hr>
+        <h6 class="heading-section mb-3">
+            <small> View other works by @if ( $author->username === 'anonuser' ) anonymous users @else <a href="/users/{{ $author->username }}">{{ $author->name }}</a> @endif</small>
+        </h6>
         @foreach( $works as $work )
-            <div class="row mb-2">
+            <div class="row mb-2 mt-2">
                 <div class="col-lg-3">
                     <img src="/images/char_images/{{ $work->cover_img }}" class="img-fluid mx-auto" alt="Character Cover Image">
                 </div>
@@ -67,6 +68,7 @@
                 </div>
             </div>
         @endforeach
+        <center><a href="/users/{{ $author->username }}" class="btn btn-dark btn-lg btn-block">VIEW OTHER WORKS</a></center>
     </div>
 
 @endsection

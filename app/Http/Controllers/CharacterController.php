@@ -42,7 +42,7 @@ class CharacterController extends Controller
 
         $author = Character::find( $character->id )->author;
         $images = Character::find( $character->id )->images;
-        $works = User::find( $author->id )->characters()->whereNotNull( 'published_at' )->inRandomOrder()->limit( 3 )->get();
+        $works  = User::find( $author->id )->characters()->whereNotNull( 'published_at' )->inRandomOrder()->limit( 3 )->get();
 
         return view( 'character',
         [
