@@ -112,7 +112,7 @@
                     <div id="dropzone-gallery" class="dropzone">
                         <div class="dz-default dz-message"><h3>Drop images here or click to upload</h3></div>
                     </div>
-                    <input type="text" id="image_name" name="image_name" value="">
+                    <input type="text" id="image_name" name="image_name" value="" hidden>
                 </div>
             </div>
             <br>

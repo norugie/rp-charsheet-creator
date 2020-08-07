@@ -1,5 +1,12 @@
 @extends ( 'layout.layout' )
 
+@section ( 'header' )
+
+    {{-- Additional header tags for page: /character/{id} --}}
+    <link rel="stylesheet" href="/js/lightgallery/css/lightgallery.min.css">
+
+@endsection
+
 @if( is_null( $character->published_at ) || empty( $character->published_at ) )
     @section ( 'notice' )
 
@@ -32,12 +39,14 @@
             {!! $character->info !!}
         </div>
         <h4 class="heading-section">Character Gallery</h4>
-        <div class="row">
+        <div id="lightgallery" class="row">
             @foreach ( $images as $image )
                 <div class="col-md-4">
-                    <div class="card">
-                        <img src="/images/char_images/{{ $image->char_filename }}" class="card-img-top" alt="...">
-                    </div>
+                    <center>
+                        <a class="card" href="/images/char_images/{{ $image->char_filename }}">
+                            <img src="/images/char_images/{{ $image->char_filename }}" class="card-img-top" alt="{{ $character->char_name }}">
+                        </a>
+                    </center>
                 </div>
             @endforeach
         </div>
@@ -75,4 +84,24 @@
         <center><a href="/users/{{ $author->username }}" class="btn btn-dark btn-lg btn-block">VIEW OTHER WORKS</a></center>
     </div>
 
+@endsection
+
+@section ( 'footer' )
+
+    {{-- Additional scripts for page: /character/{id} --}}
+    <script src="/js/lightgallery/js/lightgallery-all.min.js"></script>
+    <script>
+        $( document ).ready( function() {
+            $( '#lightgallery' ).lightGallery({
+                thumbnail: true,
+                mode: 'lg-fade',
+                autoplay: false,
+                autoplayControls: false,
+                fullScreen: true,
+                actualSize: false,
+                share: false,
+                selector: 'a'
+            });
+        });
+    </script>
 @endsection

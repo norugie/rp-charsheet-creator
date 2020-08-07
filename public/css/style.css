@@ -11729,10 +11729,6 @@ body.menu-show {
     width: 100%;
 }
 
-span {
-    color: #212529;
-}
-
 a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
