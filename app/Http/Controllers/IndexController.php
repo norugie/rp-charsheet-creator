@@ -7,11 +7,6 @@ use Illuminate\Support\Facades\File;
 
 class IndexController extends Controller
 {
-    public function login ()
-    {
-        return view( 'login' );
-    }
-
     public function uploadImage ( Request $request, $type )
     {
         $file = $request->file( 'file' );
