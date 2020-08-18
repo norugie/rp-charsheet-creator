@@ -24,9 +24,11 @@ Route::get( '/character/{slug}', 'CharacterController@showCharacterInfo' );
 Route::get( '/users/{username}', 'CharacterController@showCharacterListPerUser' );
 Route::post( '/search', 'CharacterController@searchCharacter' );
 
-// User Routes
-Route::get( '/login', 'IndexController@login' );
-
 // Miscellaneous Routes
 Route::post( '/upload/{type}', 'IndexController@uploadImage' );
 Route::post( '/delete/gallery', 'IndexController@deleteImage' );
+
+// Auth
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

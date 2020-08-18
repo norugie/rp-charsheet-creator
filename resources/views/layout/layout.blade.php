@@ -48,9 +48,15 @@
                             <li class="nav-item d-flex {{ Request::is( 'create' ) ? 'active' : '' }}">
                                 <a class="nav-link d-flex align-items-center" href="/create"><i class="ion-ios-create mr-1"></i> Create</a>
                             </li>
+                            @guest
                             <li class="nav-item d-flex {{ Request::is( 'login' ) ? 'active' : '' }}">
                                 <a class="nav-link d-flex align-items-center" href="/login"><i class="ion-ios-log-in mr-1"></i> Login</a>
                             </li>
+                            @else
+                            <li class="nav-item d-flex {{ Request::is( 'home' ) ? 'active' : '' }}">
+                                <a class="nav-link d-flex align-items-center" href="/home"><i class="ion-ios-person mr-1"></i> {{ Auth::user()->name }}</a>
+                            </li>
+                            @endguest
                         </ul>
                         <form action="/search" method="POST" class="form-inline my-2 my-lg-0">
                             {{ csrf_field() }}
