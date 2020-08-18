@@ -43,7 +43,7 @@
                     <div class="collapse navbar-collapse" id="navbar-rpchcr">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item d-flex {{ Request::is( '/' ) ? 'active' : '' }}">
-                                <a class="nav-link d-flex align-items-center" href="/"><i class="ion-ios-home mr-1"></i> Home</a>
+                                <a class="nav-link d-flex align-items-center" href="/"><i class="ion-ios-home mr-1"></i> MEH</a>
                             </li>
                             <li class="nav-item d-flex {{ Request::is( 'create' ) ? 'active' : '' }}">
                                 <a class="nav-link d-flex align-items-center" href="/create"><i class="ion-ios-create mr-1"></i> Create</a>
