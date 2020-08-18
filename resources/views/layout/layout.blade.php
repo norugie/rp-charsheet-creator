@@ -53,8 +53,8 @@
                                 <a class="nav-link d-flex align-items-center" href="/login"><i class="ion-ios-log-in mr-1"></i> Login</a>
                             </li>
                             @else
-                            <li class="nav-item d-flex {{ Request::is( 'home' ) ? 'active' : '' }}">
-                                <a class="nav-link d-flex align-items-center" href="/home"><i class="ion-ios-person mr-1"></i> {{ Auth::user()->name }}</a>
+                            <li class="nav-item d-flex {{ Request::is( 'dashboard' ) ? 'active' : '' }}">
+                                <a class="nav-link d-flex align-items-center" href="/dashboard"><i class="ion-ios-person mr-1"></i> {{ Auth::user()->name }}</a>
                             </li>
                             @endguest
                         </ul>

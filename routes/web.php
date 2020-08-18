@@ -31,4 +31,5 @@ Route::post( '/delete/gallery', 'IndexController@deleteImage' );
 // Auth
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// User Routes - Home Page
+Route::get('/dashboard', 'HomeController@index')->name('home');
