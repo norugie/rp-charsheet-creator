@@ -80,7 +80,7 @@
                             </span>
                         </div>
                         <select id="sexuality_select" name="sexuality_select" class="form-control clear-border custom-select">
-                            <option hidden value="Straight">Sexuality Options</option>
+                            <option hidden value="Heterosexual">Sexuality Options</option>
                             <option value="Heterosexual">Heterosexual</option>
                             <option value="Bisexual">Bisexual</option>
                             <option value="Homosexual">Homosexual</option>
