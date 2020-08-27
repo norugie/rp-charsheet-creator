@@ -73,6 +73,7 @@
                     <div class="row">
                         @yield ( 'notice' )
                         @yield ( 'content' )
+                        @yield ( 'modal' )
                     </div>
                 </div>
             </div>
