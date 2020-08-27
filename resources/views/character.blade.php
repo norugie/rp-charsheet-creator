@@ -20,9 +20,52 @@
                     <p class="mb-2 ml-2"><b>This character is currently not published.</b> You can create an account to author this character or publish this character anonymously.</p>
                 </div>
                 <center>
-                    <button type="button" class="btn btn-outline-info btn-sm">Create an account</button>
+                    <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-login">Create an account</button>
                     <a href="/publish/{{ $character->slug }}" class="btn btn-outline-info btn-sm">Publish character</a>
                 </center>
+            </div>
+        </div>
+
+    @endsection
+
+    @section ( 'modal' )
+        {{-- Character - Modal Login/Signup --}}
+        <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <br>
+                        <div class="tabulation">
+							<ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#home">Create Account</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#menu1">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#menu2">Messages</a>
+                                </li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content border border-top-0">
+                                <div class="tab-pane container p-4 active" id="home">
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                </div>
+                                <div class="tab-pane container p-4 fade" id="menu1">
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                </div>
+                                <div class="tab-pane container p-4 fade" id="menu2">
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                </div>
+							</div>
+						</div>
+                    </div>
+                </div>
             </div>
         </div>
 
