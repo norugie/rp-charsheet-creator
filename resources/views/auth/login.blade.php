@@ -7,50 +7,7 @@
                 sign up here!
             </a></p>
             <div class="card-body p-4">
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="ion-ios-person"></i>
-                            </span>
-                        </div>
-                        <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="Username...">
-
-                        @error('username')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="ion-ios-lock"></i>
-                            </span>
-                        </div>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
-
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-3">
-                            <button type="submit" class="btn btn-dark">
-                                {{ __('Login') }}
-                            </button>
-
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
-                        </div>
-                    </div>
-                </form>
+                @include ( 'auth.loginform' )
             </div>
         </div>
     </div>

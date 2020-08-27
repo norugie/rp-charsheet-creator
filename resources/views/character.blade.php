@@ -41,26 +41,20 @@
                         <div class="tabulation">
 							<ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#home">Create Account</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#create">Create Account</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#menu1">Profile</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#menu2">Messages</a>
+                                    <a class="nav-link" data-toggle="tab" href="#login">Login</a>
                                 </li>
 							</ul>
 
 							<!-- Tab panes -->
 							<div class="tab-content border border-top-0">
-                                <div class="tab-pane container p-4 active" id="home">
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                <div class="tab-pane container p-4 active" id="create">
+                                    @include ( 'auth.registerform' )
                                 </div>
-                                <div class="tab-pane container p-4 fade" id="menu1">
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                                </div>
-                                <div class="tab-pane container p-4 fade" id="menu2">
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                <div class="tab-pane container p-4 fade" id="login">
+                                    @include ( 'auth.loginform' )
                                 </div>
 							</div>
 						</div>
