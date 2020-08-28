@@ -58,6 +58,12 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],
+        [
+            'name.required' => 'You cannot leave this section empty.',
+            'username.required' => 'You cannot leave this section empty.',
+            'email.required' => 'You cannot leave this section empty.',
+            'password.required' => 'You cannot leave this section empty.'
         ]);
     }
 

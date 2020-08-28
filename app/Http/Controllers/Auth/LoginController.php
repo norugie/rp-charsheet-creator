@@ -49,9 +49,15 @@ class LoginController extends Controller
     {
         $input = $request->all();
 
-        $this->validate( $request, [
-            'username' => 'required',
+        $this->validate( $request, 
+        [
+            'username' => 'required|exists:users,username',
             'password' => 'required',
+        ],
+        [
+            'username.exists' => 'Something is wrong with your username or password. Please check your input.',
+            'username.required' => 'You cannot leave this section empty.',
+            'password.required' => 'You cannot leave this section empty.'
         ]);
   
         if( auth()->attempt( array( 'username' => $input[ 'username' ], 'password' => $input[ 'password' ] ) ) )
@@ -69,8 +75,13 @@ class LoginController extends Controller
                 return redirect( '/character/' . $character->slug );
             }
         } else {
-            return redirect()->route( 'login' )
-                ->withErrors( 'Something is wrong with your login credentials.' );
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(
+                    [
+                        'username'  => 'Something is wrong with your username or password. Please check your input.'
+                    ]
+                );
         }
     }
 }
