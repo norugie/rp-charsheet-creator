@@ -2624,6 +2624,14 @@ textarea.form-control.is-valid {
     color: #dc3545;
 }
 
+.empty-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
 .invalid-tooltip {
     position: absolute;
     top: 100%;
