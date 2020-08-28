@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Character;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -71,5 +75,33 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        if( $request->input('char_id') == null || empty( $request->input('char_id') ) )
+            return $this->registered($request, $user) ?: redirect($this->redirectPath());
+        else {
+            // Author characters here
+            $character = Character::find($request->input('char_id'));
+
+            $character->author_id = $user->id;
+            $character->published_at = date( 'Y-m-d H:i:s' );
+            $character->save();
+
+            return redirect( '/character/' . $character->slug );
+        }
     }
 }
