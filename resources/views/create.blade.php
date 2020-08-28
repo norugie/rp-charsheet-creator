@@ -134,5 +134,6 @@
     <script src="/js/editor.js"></script>
     <script src="/js/dropzone.js"></script>
     <script src="/js/character.js"></script>
+    <script src="/js/validation.js"></script>
 
 @endsection
