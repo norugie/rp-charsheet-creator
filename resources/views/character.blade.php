@@ -17,49 +17,14 @@
                     <div class="alert-icon">
                         <i class="ion-ios-information-circle-outline"></i>
                     </div>
-                    <p class="mb-2 ml-2"><b>This character is currently not published.</b> You can create an account to author this character or publish this character anonymously.</p>
+                    <p class="mb-2 ml-2"><b>This character is currently not published.</b> @guest You can create an account to author this character or publish this character anonymously. @else Would you like to publish this character now? @endguest</p>
                 </div>
                 <center>
-                    <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-login">Create an account</button>
+                    @guest
+                        <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-login">Create an account</button>
+                    @endguest
                     <a href="/publish/{{ $character->slug }}" class="btn btn-outline-info btn-sm">Publish character</a>
                 </center>
-            </div>
-        </div>
-
-    @endsection
-
-    @section ( 'modal' )
-        {{-- Character - Modal Login/Signup --}}
-        <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <br>
-                        <div class="tabulation">
-							<ul class="nav nav-tabs">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#create">Create Account</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#login">Login</a>
-                                </li>
-							</ul>
-
-							<!-- Tab panes -->
-							<div class="tab-content border border-top-0">
-                                <div class="tab-pane container p-4 active" id="create">
-                                    @include ( 'auth.registerform' )
-                                </div>
-                                <div class="tab-pane container p-4 fade" id="login">
-                                    @include ( 'auth.loginform' )
-                                </div>
-							</div>
-						</div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -142,3 +107,45 @@
         });
     </script>
 @endsection
+
+@if( is_null( $character->published_at ) || empty( $character->published_at ) )
+    @guest
+        @section ( 'modal' )
+        
+            {{-- Character - Modal Login/Signup --}}
+            <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <br>
+                            <div class="tabulation">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#create">Create Account</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#login">Login</a>
+                                    </li>
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content border border-top-0">
+                                    <div class="tab-pane container p-4 active" id="create">
+                                        @include ( 'auth.registerform' )
+                                    </div>
+                                    <div class="tab-pane container p-4 fade" id="login">
+                                        @include ( 'auth.loginform' )
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endsection
+    @endguest
+@endif

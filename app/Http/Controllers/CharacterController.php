@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Character;
 use App\Images;
+use Auth;
 
 class CharacterController extends Controller
 {
@@ -105,7 +106,7 @@ class CharacterController extends Controller
         if (! request( 'sexuality_select' ) ? $character->sexuality = request( 'sexuality_custom' ) : $character->sexuality = request( 'sexuality_select' ) );
         if (! request( 'chardesc' ) ? $character->chardesc = 'No character description given.' : $character->chardesc = request( 'chardesc' ));
         $character->info = request( 'info' );
-        $character->author_id = 1;
+        if(! Auth::id() ? $character->author_id = 1 : $character->author_id = Auth::id() );
         $images = request( 'image_name' );
         if (! $images ) {
             $character->cover_img = 'default.png';
