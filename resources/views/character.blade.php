@@ -122,14 +122,16 @@
                             </button>
                             <br>
                             <div class="tabulation">
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#create">Create Account</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#login">Login</a>
-                                    </li>
-                                </ul>
+                                <center>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#create">Create Account</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#login">Login</a>
+                                        </li>
+                                    </ul>
+                                </center>
 
                                 <!-- Tab panes -->
                                 <div class="tab-content border border-top-0">
