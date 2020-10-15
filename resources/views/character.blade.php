@@ -13,18 +13,24 @@
         {{-- Character - Notices --}}
         <div class="alert alert-info">
             <div class="container">
-                <div class="d-flex">
-                    <div class="alert-icon">
-                        <i class="ion-ios-information-circle-outline"></i>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="d-flex">
+                            <div class="alert-icon">
+                                <i class="ion-ios-information-circle-outline"></i>
+                            </div>
+                            <p class="mb-0 ml-2"><b>This character is currently not published.</b> @guest You can create an account to author this character or publish this character anonymously. @else Would you like to publish this character now? @endguest</p>
+                        </div>
                     </div>
-                    <p class="mb-2 ml-2"><b>This character is currently not published.</b> @guest You can create an account to author this character or publish this character anonymously. @else Would you like to publish this character now? @endguest</p>
+                    <div class="col-md-4">
+                        <center>
+                            @guest
+                                <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-login">Create an account</button>
+                            @endguest
+                            <a href="/publish/{{ $character->slug }}" class="btn btn-outline-info btn-sm">Publish character</a>
+                        </center>  
+                    </div>
                 </div>
-                <center>
-                    @guest
-                        <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-login">Create an account</button>
-                    @endguest
-                    <a href="/publish/{{ $character->slug }}" class="btn btn-outline-info btn-sm">Publish character</a>
-                </center>
             </div>
         </div>
 
