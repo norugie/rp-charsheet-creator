@@ -33,3 +33,4 @@ Auth::routes();
 
 // User Routes - Home Page
 Route::get('/dashboard', 'HomeController@index')->name('home');
+Route::get('/account', 'HomeController@account');
