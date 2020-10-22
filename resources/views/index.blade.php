@@ -1,7 +1,7 @@
 @extends ( 'layout.layout' )
 
 @section ( 'content' )
-
+    Testing
     {{-- Index - Character Sheet List --}}
     @foreach ( $characters as $character )
         <div class="col-xxl-2 col-xxl-5 col-xl-3 col-lg-4 col-md-6">
