@@ -53,8 +53,19 @@
                                 <a class="nav-link d-flex align-items-center" href="/login"><i class="ion-ios-log-in mr-1"></i> Login</a>
                             </li>
                             @else
-                            <li class="nav-item d-flex {{ Request::is( 'dashboard' ) ? 'active' : '' }}">
-                                <a class="nav-link d-flex align-items-center" href="/dashboard"><i class="ion-ios-person mr-1"></i> {{ Auth::user()->name }}</a>
+                            <li class="nav-item d-flex dropdown">
+                                <a class="nav-link d-flex align-items-center dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ion-ios-person mr-1"></i> {{ Auth::user()->name }}</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/dashboard"><i class="ion-ios-apps mr-1"></i> Dashboard</a>
+                                    <a class="dropdown-item" href="/account"><i class="ion-ios-person mr-1"></i> Account Settings</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/logout"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"><i class="ion-ios-log-in mr-1"></i> Logout</a>
+                                </div>
+                                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </li>
                             @endguest
                         </ul>

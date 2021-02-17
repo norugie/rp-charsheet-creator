@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.dashboard');
+        // Get list of published characters by logged in user
+        $characters = User::find( Auth::id() )->characters;
+
+        // Redirect to 404 page if list is empty
+        if(! $characters->count() ) return view( 'empty' );
+
+        return view( 'user.dashboard',
+        [
+            'characters' => $characters
+        ]);
+    }
+
+    public function account()
+    {
+        return view('user.account');
     }
 }
