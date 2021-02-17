@@ -97,14 +97,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <label for="chardesc" style="font-weight:bold;">Short Character Introduction</label>
-                    <textarea id="chardesc" name="chardesc" class="form-control clear-border-textarea" row="5">{{ old( 'chardesc' ) }}"</textarea>
+                    <textarea id="chardesc" name="chardesc" class="form-control clear-border-textarea" row="5">{{ old( 'chardesc' ) }}</textarea>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-lg-12">
                     <label class="label-emphasis" for="info">Character Information</label>
-                    <textarea id="info" name="info" class="form-control clear-border-textarea editor">{{ old( 'info' ) }}"</textarea>
+                    <textarea id="info" name="info" class="form-control clear-border-textarea editor">{{ old( 'info' ) }}</textarea>
                 </div>
             </div>
             <br>

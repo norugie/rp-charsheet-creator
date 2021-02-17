@@ -74,7 +74,7 @@
         </div>
         <hr>
         <h6 class="heading-section mb-3">
-            <small> View other works by @if ( $author->username === 'anonuser' ) anonymous users @else <a href="/users/{{ $author->username }}">{{ $author->name }}</a> @endif</small>
+            <small> View other published works by @if ( $author->username === 'anonuser' ) anonymous users @else <a href="/users/{{ $author->username }}">{{ $author->name }}</a> @endif</small>
         </h6>
         @foreach( $works as $work )
             <div class="row mb-2 mt-2">

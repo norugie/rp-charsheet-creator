@@ -102,13 +102,11 @@ class CharacterController extends Controller
         [
             'charname' => 'required',
             'apparent_age' => 'required|integer',
-            'age' => 'integer'
         ],
         [
             'charname.required' => 'You cannot leave this section empty.',
             'apparent_age.required' => 'You cannot leave this section empty.',
-            'apparent_age.integer' => 'You must enter a numerical value here.',
-            'age.integer' => 'You must enter a numerical value here.',
+            'apparent_age.integer' => 'You must enter a numerical value here.'
         ]);
 
         $character->slug = rand( 1111, 9999 ) . '-' . strtolower( str_replace( ' ', '-', request( 'charname' ) ) );
