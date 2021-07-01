@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CharacterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,23 +17,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Character Routes - Create
-Route::get( '/create', 'CharacterController@createCharacterForm' );
-Route::post( '/create', 'CharacterController@createCharacter');
-Route::get( '/publish/{slug}', 'CharacterController@publishCharacter' );
+Route::get('/create', [CharacterController::class, 'createCharacterForm']);
+Route::post( '/create', [CharacterController::class,'createCharacter']);
+Route::get( '/publish/{slug}', [CharacterController::class, 'publishCharacter'] );
 
 // Character Routes - Show
-Route::get( '/', 'CharacterController@showCharacterList' );
-Route::get( '/character/{slug}', 'CharacterController@showCharacterInfo' );
-Route::get( '/users/{username}', 'CharacterController@showCharacterListPerUser' );
-Route::post( '/search', 'CharacterController@searchCharacter' );
+Route::get( '/', [CharacterController::class, 'showCharacterList'] );
+Route::get( '/character/{slug}', [CharacterController::class, 'showCharacterInfo'] );
+Route::get( '/users/{username}', [CharacterController::class, 'showCharacterListPerUser'] );
+Route::post( '/search', [CharacterController::class, 'searchCharacter'] );
 
 // Miscellaneous Routes
-Route::post( '/upload/{type}', 'IndexController@uploadImage' );
-Route::post( '/delete/gallery', 'IndexController@deleteImage' );
+Route::post( '/upload/{type}', [IndexController::class, 'uploadImage'] );
+Route::post( '/delete/gallery', [IndexController::class, 'deleteImage'] );
 
 // Auth
 Auth::routes();
 
-// User Routes - Home Page
-Route::get('/dashboard', 'HomeController@index')->name('home');
-Route::get('/account', 'HomeController@account');
+Route::group(['name' => 'home'], function (){
+    // User Routes - Home Page
+    Route::get('/dashboard', [HomeController::class, 'index'] );
+    Route::get('/account', [HomeController::class, 'account'] );
+});
