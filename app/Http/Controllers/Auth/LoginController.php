@@ -63,7 +63,7 @@ class LoginController extends Controller
         if( auth()->attempt( array( 'username' => $input[ 'username' ], 'password' => $input[ 'password' ] ) ) )
         {
             if(! isset( $input[ 'char_id' ] ) || empty( $input[ 'char_id' ] ) )
-                return redirect()->route( 'home' );
+                return redirect($this->redirectPath());
             else {
                  // Author characters here
                 $character = Character::find( $input[ 'char_id' ] );
