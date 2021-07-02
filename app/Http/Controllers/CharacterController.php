@@ -141,11 +141,14 @@ class CharacterController extends Controller
         return redirect( '/character/' . $character->slug );
     }
 
-    public function publishCharacter ( String $slug )
+    public function publishCharacter ( String $slug, $id )
     {
         // Get unpublished character
         $character = Character::where( 'slug', $slug )->first();
         
+        // If $id is not NULL, use auth id as author value
+        if($id !== NULL ) $character->author_id = $id;
+
         // Update published date
         $character->published_at =  date('Y-m-d H:i:s');
         
@@ -153,5 +156,10 @@ class CharacterController extends Controller
         $character->save();
 
         return redirect( '/character/' . $slug );
+    }
+
+    public function updateCharacterForm () 
+    {
+        return view( 'update' );
     }
 }

@@ -51,7 +51,7 @@
         <div class="invalid-feedback">You cannot leave this section empty.</div>
     </div>
 
-    <input type="text" name="char_id" value="{{ Request::is( 'character/*' ) ? $character->id : '' }}" hidden>
+    <input type="text" name="char_slug" value="{{ Request::is( 'character/*' ) ? $character->slug : '' }}" hidden>
     <div class="form-group row mb-0">
         <div class="col-md-12 text-center">
             <button type="submit" class="btn btn-dark">Register</button>
