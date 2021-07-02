@@ -34,8 +34,12 @@ Route::post( '/delete/gallery', [IndexController::class, 'deleteImage'] );
 // Auth
 Auth::routes();
 
-Route::group(['name' => 'home'], function (){
+Route::group(['middleware' => 'auth', 'name' => 'login'], function (){
     // User Routes - Home Page
     Route::get('/dashboard', [HomeController::class, 'index'] );
     Route::get('/account', [HomeController::class, 'account'] );
+
+    // Character Routes - Update
+    Route::get('/character/{slug}/update', [CharacterController::class, 'updateCharacterForm']);
+
 });

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CharacterController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use App\Character;
+// use App\Character;
 
 class LoginController extends Controller
 {
@@ -62,17 +63,14 @@ class LoginController extends Controller
   
         if( auth()->attempt( array( 'username' => $input[ 'username' ], 'password' => $input[ 'password' ] ) ) )
         {
-            if(! isset( $input[ 'char_id' ] ) || empty( $input[ 'char_id' ] ) )
-                return redirect($this->redirectPath());
+            if(! isset( $input[ 'char_slug' ] ) || empty( $input[ 'char_slug' ] ) )
+                return redirect()->route('login');
             else {
-                 // Author characters here
-                $character = Character::find( $input[ 'char_id' ] );
+                // Publish character here
+                $character = new CharacterController();
+                $character->publishCharacter( $input[ 'char_slug' ],  auth()->id());
 
-                $character->author_id = auth()->id();
-                $character->published_at = date( 'Y-m-d H:i:s' );
-                $character->save();
-
-                return redirect( '/character/' . $character->slug );
+                return redirect( '/character/' . $input[ 'char_slug' ] );
             }
         } else {
             return redirect()->back()

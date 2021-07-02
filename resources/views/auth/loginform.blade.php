@@ -19,7 +19,7 @@
         <input id="login-password" type="password" class="form-control clear-border @error('username') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
         <div class="invalid-feedback">@error('password'){{ $message }}@else You cannot leave this section empty. @enderror</div>
     </div>
-    <input type="text" name="char_id" value="{{ Request::is( 'character/*' ) ? $character->id : '' }}" hidden>
+    <input type="text" name="char_slug" value="{{ Request::is( 'character/*' ) ? $character->slug : '' }}" hidden>
     <div class="form-group row mb-0">
         <div class="col-md-12 text-center">
             <button type="submit" class="btn btn-dark">Login</button>
