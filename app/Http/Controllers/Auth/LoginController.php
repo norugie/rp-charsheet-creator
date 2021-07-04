@@ -7,7 +7,6 @@ use App\Http\Controllers\CharacterController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-// use App\Character;
 
 class LoginController extends Controller
 {

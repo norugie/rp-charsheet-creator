@@ -64,13 +64,12 @@
                             </span>
                         </div>
                         <select id="gender_select" name="gender_select" class="form-control clear-border custom-select">
-                            <option hidden value="Agender">Gender options</option>
+                            <option value="Agender">Agender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Non-binary">Non-binary</option>
                             <option value="custom">[ Other ]</option>
                         </select><input type="text" id="gender_custom" name="gender_custom" class="form-control clear-border" style="display: none;" disabled="disabled" placeholder="Specify your character's gender">
-                        <p class="font-12 small mb-0"><b>Note:</b> Leaving this empty will automatically set your character as Agender.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-xs-12">
@@ -82,7 +81,7 @@
                             </span>
                         </div>
                         <select id="sexuality_select" name="sexuality_select" class="form-control clear-border custom-select">
-                            <option hidden value="Asexual">Sexuality Options</option>
+                            <option value="Asexual">Asexual</option>
                             <option value="Heterosexual">Heterosexual</option>
                             <option value="Bisexual">Bisexual</option>
                             <option value="Homosexual">Homosexual</option>
@@ -90,7 +89,6 @@
                             <option value="Demisexual">Demisexual</option>
                             <option value="custom">[ Other ]</option>
                         </select><input type="text" id="sexuality_custom" name="sexuality_custom" class="form-control clear-border" style="display: none;" disabled="disabled" placeholder="Specify your character's sexuality">
-                        <p class="font-12 small mb-0"><b>Note:</b> Leaving this empty will automatically set your character as Asexual.</p>
                     </div>
                 </div>
             </div>
