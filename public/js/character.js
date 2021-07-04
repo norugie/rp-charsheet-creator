@@ -1,12 +1,12 @@
-(function () {
+(function() {
     'use strict';
 
     // Validating inputs
-    window.addEventListener('load', function () {
+    window.addEventListener('load', function() {
         const form = $('.needs-validation');
         // Loop over forms and prevent submission
-        Array.prototype.filter.call(form, function (form) {
-            form.addEventListener('submit', function (event) {
+        Array.prototype.filter.call(form, function(form) {
+            form.addEventListener('submit', function(event) {
                 if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
@@ -38,22 +38,22 @@
 
     $('#apparent_age').keydown(noNegativeValue);
     $('#age').keydown(noNegativeValue);
-    $('#gender_select').change(function () {
+    $('#gender_select').change(function() {
         if (this.options[this.selectedIndex].value == 'custom') {
             toggleField(this, this.nextSibling);
             this.selectedIndex = '0';
         }
     });
-    $('#gender_custom').blur(function () {
+    $('#gender_custom').blur(function() {
         if (this.value == '') toggleField(this, this.previousSibling);
     });
-    $('#sexuality_select').change(function () {
+    $('#sexuality_select').change(function() {
         if (this.options[this.selectedIndex].value == 'custom') {
             toggleField(this, this.nextSibling);
             this.selectedIndex = '0';
         }
     });
-    $('#sexuality_custom').blur(function () {
+    $('#sexuality_custom').blur(function() {
         if (this.value == '') toggleField(this, this.previousSibling);
     });
 })();

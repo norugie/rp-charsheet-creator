@@ -24,7 +24,7 @@
                                 <i class="ion-ios-person"></i>
                             </span>
                         </div>
-                        <input type="text" id="charname" name="charname" class="form-control clear-border @error( 'charname' ) is-invalid @enderror" value="{{ old( 'charname' ) }}" required>
+                        <input type="text" id="charname" name="charname" class="form-control clear-border @error( 'charname' ) is-invalid @enderror" value="{{ $character->char_name }}" required>
                         <div class="invalid-feedback">@error( 'charname' ){{ $message }}@else You cannot leave this section empty. @enderror</div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                                 <i class="ion-ios-glasses"></i>
                             </span>
                         </div>
-                        <input type="number" min="1" id="apparent_age" name="apparent_age" class="form-control clear-border @error( 'apparent_age' ) is-invalid @enderror" value="{{ old( 'apparent_age' ) }}" required>
+                        <input type="number" min="1" id="apparent_age" name="apparent_age" class="form-control clear-border @error( 'apparent_age' ) is-invalid @enderror" value="{{ $character->apparent_age }}" required>
                         <div class="invalid-feedback">@error( 'apparent_age' ){{ $message }}@else You cannot leave this section empty. @enderror</div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                                 <i class="ion-ios-calendar"></i>
                             </span>
                         </div>
-                        <input type="number" min="1" id="age" name="age" class="form-control clear-border @error( 'age' ) is-invalid @enderror">
+                        <input type="number" min="1" id="age" name="age" class="form-control clear-border @error( 'age' ) is-invalid @enderror" value="{{ $character->age }}">
                         <p class="font-12 small mb-0"><b>Note:</b> Leaving this empty will automatically set the apparent age as your character's actual age</p>
                         <div class="invalid-feedback">@error( 'age' ){{ $message }}@enderror</div>
                     </div>
@@ -64,13 +64,12 @@
                             </span>
                         </div>
                         <select id="gender_select" name="gender_select" class="form-control clear-border custom-select">
-                            <option hidden value="Agender">Gender options</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Non-binary">Non-binary</option>
+                            <option value="Agender" @if( $character->gender === 'Agender' ) selected @endif>Agender</option>
+                            <option value="Male" @if( $character->gender === 'Male' ) selected @endif>Male</option>
+                            <option value="Female" @if( $character->gender === 'Female' ) selected @endif>Female</option>
+                            <option value="Non-binary" @if( $character->gender === 'Non-binary' ) selected @endif>Non-binary</option>
                             <option value="custom">[ Other ]</option>
                         </select><input type="text" id="gender_custom" name="gender_custom" class="form-control clear-border" style="display: none;" disabled="disabled" placeholder="Specify your character's gender">
-                        <p class="font-12 small mb-0"><b>Note:</b> Leaving this empty will automatically set your character as Agender.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-xs-12">
@@ -82,29 +81,28 @@
                             </span>
                         </div>
                         <select id="sexuality_select" name="sexuality_select" class="form-control clear-border custom-select">
-                            <option hidden value="Asexual">Sexuality Options</option>
-                            <option value="Heterosexual">Heterosexual</option>
-                            <option value="Bisexual">Bisexual</option>
-                            <option value="Homosexual">Homosexual</option>
-                            <option value="Pansexual">Pansexual</option>
-                            <option value="Demisexual">Demisexual</option>
+                            <option value="Asexual" @if( $character->sexuality === 'Asexual' ) selected @endif>Asexual</option>
+                            <option value="Heterosexual" @if( $character->sexuality === 'Heterosexual' ) selected @endif>Heterosexual</option>
+                            <option value="Bisexual" @if( $character->sexuality === 'Bisexual' ) selected @endif>Bisexual</option>
+                            <option value="Homosexual" @if( $character->sexuality === 'Homosexual' ) selected @endif>Homosexual</option>
+                            <option value="Pansexual" @if( $character->sexuality === 'Pansexual' ) selected @endif>Pansexual</option>
+                            <option value="Demisexual" @if( $character->sexuality === 'Demisexual' ) selected @endif>Demisexual</option>
                             <option value="custom">[ Other ]</option>
                         </select><input type="text" id="sexuality_custom" name="sexuality_custom" class="form-control clear-border" style="display: none;" disabled="disabled" placeholder="Specify your character's sexuality">
-                        <p class="font-12 small mb-0"><b>Note:</b> Leaving this empty will automatically set your character as Asexual.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <label for="chardesc" style="font-weight:bold;">Short Character Introduction</label>
-                    <textarea id="chardesc" name="chardesc" class="form-control clear-border-textarea" row="5">{{ old( 'chardesc' ) }}</textarea>
+                    <textarea id="chardesc" name="chardesc" class="form-control clear-border-textarea" row="5">{{ $character->desc }}</textarea>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-lg-12">
                     <label class="label-emphasis" for="info">Character Information</label>
-                    <textarea id="info" name="info" class="form-control clear-border-textarea editor">{{ old( 'info' ) }}</textarea>
+                    <textarea id="info" name="info" class="form-control clear-border-textarea editor">{{ $character->info }}</textarea>
                 </div>
             </div>
             <br>

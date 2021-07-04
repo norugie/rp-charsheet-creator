@@ -158,8 +158,16 @@ class CharacterController extends Controller
         return redirect( '/character/' . $slug );
     }
 
-    public function updateCharacterForm () 
+    public function updateCharacterForm ( String $slug ) 
     {
-        return view( 'update' );
+        // Get character
+        $character = Character::where( 'slug', $slug )->first();
+
+        // Redirect to Dashboard if character to update is not owned by currently logged in author else redirect to update page
+        if(Auth::id() !== $character->author_id) return redirect( '/dashboard' );
+        else  return view( 'update', 
+        [
+            'character' => $character
+        ]);
     }
 }
