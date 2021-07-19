@@ -24,6 +24,20 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // Insert anon user
+        DB::table('users')->insert(
+            array(
+                'name' => 'Anonymous User',
+                'username' => 'anonuser',
+                'email' => 'anon@rpcsc.com',
+                'email_verified_at' => '2020-08-18 20:28:30',
+                'password' => '$2y$10$kaTeQfIuznbY1Fymxu8kP.ge2lkDr5n5oF2/sh9fbwLx2PlFYuqUG',
+                'avatar' => 'default.png',
+                'created_at' => '2020-08-18 20:28:30',
+                'updated_at' => '2020-08-18 20:28:30'
+            )
+        );
     }
 
     /**
