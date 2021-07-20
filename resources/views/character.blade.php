@@ -5,6 +5,42 @@
     {{-- Additional header tags for page: /character/{id} --}}
     <link rel="stylesheet" href="/js/lightgallery/css/lightgallery.min.css">
 
+    <style>
+#photos {
+   /* Prevent vertical gaps */
+   line-height: 0;
+   
+   -webkit-column-count: 3;
+   -webkit-column-gap:   0px;
+   -moz-column-count:    3;
+   -moz-column-gap:      0px;
+   column-count:         3;
+   column-gap:           0px;
+}
+
+#photos img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+  /* padding: 5px; */
+}
+
+@media (max-width: 800px) {
+  #photos {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  #photos {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
+    </style>
+
 @endsection
 
 @if( is_null( $character->published_at ) || empty( $character->published_at ) )
@@ -47,16 +83,15 @@
             {!! $character->info !!}
         </div>
         <h4 class="heading-section">Character Gallery</h4>
-        <div id="lightgallery" class="row">
-            @foreach ( $images as $image )
-                <div class="col-md-4">
-                    <center>
-                        <a class="card" href="/images/char_images/{{ $image->char_filename }}">
-                            <img src="/images/char_images/{{ $image->char_filename }}" class="card-img-top" alt="{{ $character->char_name }}">
+        <div id="lightgallery">
+            
+                <div id="photos">
+                    @foreach ( $images as $image )
+                        <a href="/images/char_images/{{ $image->char_filename }}">
+                            <img src="/images/char_images/{{ $image->char_filename }}" alt="{{ $character->char_name }}">
                         </a>
-                    </center>
+                    @endforeach
                 </div>
-            @endforeach
         </div>
     </div>
     <div class="col-lg-3">
