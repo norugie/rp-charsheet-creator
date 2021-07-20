@@ -67,7 +67,7 @@ class LoginController extends Controller
             else {
                 // Publish character here
                 $character = new CharacterController();
-                $character->publishCharacter( $input[ 'char_slug' ],  auth()->id());
+                $character->publishCharacter( $input[ 'char_slug' ] );
 
                 return redirect( '/character/' . $input[ 'char_slug' ] );
             }
