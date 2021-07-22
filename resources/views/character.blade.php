@@ -4,42 +4,7 @@
 
     {{-- Additional header tags for page: /character/{id} --}}
     <link rel="stylesheet" href="/js/lightgallery/css/lightgallery.min.css">
-
-    <style>
-#photos {
-   /* Prevent vertical gaps */
-   line-height: 0;
-   
-   -webkit-column-count: 3;
-   -webkit-column-gap:   0px;
-   -moz-column-count:    3;
-   -moz-column-gap:      0px;
-   column-count:         3;
-   column-gap:           0px;
-}
-
-#photos img {
-  /* Just in case there are inline attributes */
-  width: 100% !important;
-  height: auto !important;
-  /* padding: 5px; */
-}
-
-@media (max-width: 800px) {
-  #photos {
-  -moz-column-count:    2;
-  -webkit-column-count: 2;
-  column-count:         2;
-  }
-}
-@media (max-width: 400px) {
-  #photos {
-  -moz-column-count:    1;
-  -webkit-column-count: 1;
-  column-count:         1;
-  }
-}
-    </style>
+    <link rel="stylesheet" href="/css/flex-gallery.css">
 
 @endsection
 
